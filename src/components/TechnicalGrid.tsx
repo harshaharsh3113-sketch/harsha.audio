@@ -6,35 +6,25 @@ interface TechnicalGridProps {
   columns?: 2 | 3;
 }
 
-export default function TechnicalGrid({
-  categories,
-  columns = 2,
-}: TechnicalGridProps) {
-  const colClass =
-    columns === 3
-      ? 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3'
-      : 'grid-cols-1 sm:grid-cols-2';
+export default function TechnicalGrid({ categories, columns = 2 }: TechnicalGridProps) {
+  // Use CSS grid with auto-fit so it's naturally responsive
+  const minColWidth = columns === 3 ? '160px' : '200px';
 
   return (
-    <div className={`grid ${colClass} gap-px bg-[#1F1F1F] border border-[#1F1F1F]`}>
+    <div
+      className="grid border border-[#1F1F1F]"
+      style={{
+        gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, ${minColWidth}), 1fr))`,
+        gap: '1px',
+        background: '#1F1F1F',
+      }}
+    >
       {categories.map((cat) => (
-        <div
-          key={cat.label}
-          className="bg-[#0D0D0D] p-4 break-avoid"
-        >
-          <span
-            className="tech-label block mb-3"
-            style={{ fontSize: '9px' }}
-          >
-            {cat.label}
-          </span>
+        <div key={cat.label} className="bg-[#0D0D0D] p-4 flex flex-col gap-3">
+          <span className="tech-label" style={{ fontSize: '9px' }}>{cat.label}</span>
           <ul className="flex flex-col gap-1.5">
             {cat.items.map((item) => (
-              <li
-                key={item}
-                className="text-[#C8C8C8]"
-                style={{ fontSize: '12px', fontWeight: 400 }}
-              >
+              <li key={item} className="text-[#C8C8C8]" style={{ fontSize: '12px', fontWeight: 400 }}>
                 {item}
               </li>
             ))}

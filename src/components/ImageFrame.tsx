@@ -1,22 +1,26 @@
-import { useState } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { Camera } from 'lucide-react';
 
 interface ImageFrameProps {
   src: string;
   alt: string;
   className?: string;
+  style?: CSSProperties;
   overlay?: boolean;
   overlayStrength?: 'light' | 'medium' | 'heavy';
   rounded?: boolean;
+  reveal?: boolean;
 }
 
 export default function ImageFrame({
   src,
   alt,
   className = '',
+  style,
   overlay = false,
   overlayStrength = 'medium',
   rounded = false,
+  reveal = true,
 }: ImageFrameProps) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
@@ -30,7 +34,8 @@ export default function ImageFrame({
 
   return (
     <div
-      className={`image-frame ${rounded ? 'rounded-sm' : ''} ${className}`}
+      className={`image-frame ${reveal ? 'image-reveal-clip' : ''} ${rounded ? 'rounded-sm' : ''} ${className}`}
+      style={style}
     >
       {!error && (
         <img

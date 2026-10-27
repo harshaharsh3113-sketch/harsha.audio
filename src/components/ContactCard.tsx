@@ -20,25 +20,24 @@ export default function ContactCard({
       href={href}
       target={external ? '_blank' : undefined}
       rel={external ? 'noopener noreferrer' : undefined}
-      className="break-avoid group block border-t border-[#1F1F1F] pt-4 pb-4 transition-colors duration-300 hover:border-[#3A3A3A]"
+      className="group block border-t border-[#1F1F1F] py-4 transition-colors duration-300 hover:border-[#3A3A3A]"
+      style={{ minHeight: '56px' }}
     >
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <Icon size={16} strokeWidth={1.5} className="text-[#888]" />
-          <div className="flex flex-col">
-            <span className="tech-label mb-1" style={{ fontSize: '8px' }}>
-              {label}
-            </span>
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-3 min-w-0">
+          <Icon size={16} strokeWidth={1.5} className="text-[#888] flex-shrink-0" />
+          <div className="flex flex-col min-w-0">
+            <span className="tech-label mb-0.5">{label}</span>
             <span
-              className="text-white link-underline"
-              style={{ fontSize: '15px', fontWeight: 500 }}
+              className="text-white link-underline truncate"
+              style={{ fontSize: 'clamp(0.85rem, 2vw, 0.9375rem)', fontWeight: 500 }}
             >
               {value}
             </span>
           </div>
         </div>
         {external && (
-          <span className="label-meta no-print">Open</span>
+          <span className="label-meta no-print flex-shrink-0">Open ↗</span>
         )}
       </div>
     </a>
