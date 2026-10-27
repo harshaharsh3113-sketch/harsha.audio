@@ -1,0 +1,408 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0D0D0D;
+  --bg-surface: #111111;
+  --bg-surface-2: #141414;
+  --border-subtle: #1F1F1F;
+  --border-muted: #2A2A2A;
+  --text-primary: #FFFFFF;
+  --text-secondary: #A8A8A8;
+  --text-muted: #6B6B6B;
+  --text-faint: #4A4A4A;
+  --accent: #E5E5E5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'ss01', 'cv11';
+}
+
+body {
+  letter-spacing: -0.011em;
+}
+
+/* ========== Portfolio page wrapper ========== */
+.portfolio-page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  min-height: 297mm;
+  max-height: 297mm;
+  overflow: hidden;
+  background: var(--bg-primary);
+  break-after: page;
+  page-break-after: always;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.portfolio-page:last-child {
+  break-after: auto;
+  page-break-after: auto;
+}
+
+/* Screen presentation: center A4 pages on dark backdrop */
+@media screen {
+  .portfolio-page {
+    margin: 0 auto;
+    box-shadow:
+      0 0 0 1px var(--border-subtle),
+      0 40px 80px -20px rgba(0, 0, 0, 0.8),
+      0 20px 40px -20px rgba(0, 0, 0, 0.6);
+    margin-bottom: 40px;
+    margin-top: 24px;
+  }
+}
+
+/* Internal safe area */
+.page-safe {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 18mm 16mm;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== Typography utilities ========== */
+.label-meta {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.label-meta-bright {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.label-section {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.headline-xl {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.headline-lg {
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+}
+
+.headline-md {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.headline-sm {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.body-text {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  letter-spacing: -0.005em;
+}
+
+.body-text-bright {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text-primary);
+  letter-spacing: -0.005em;
+}
+
+.body-lg {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* Technical label */
+.tech-label {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* Hairline divider */
+.hairline {
+  height: 1px;
+  background: var(--border-subtle);
+  width: 100%;
+}
+
+.hairline-muted {
+  height: 1px;
+  background: var(--border-muted);
+  width: 100%;
+}
+
+/* ========== Page header ========== */
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 0;
+  flex-shrink: 0;
+}
+
+/* ========== Footer ========== */
+.page-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/* ========== Image frame ========== */
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+}
+
+.image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media screen and (hover: hover) {
+  .image-frame:hover img {
+    transform: scale(1.02);
+  }
+}
+
+.image-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface-2);
+  border: 1px solid var(--border-subtle);
+  gap: 14px;
+}
+
+/* ========== Cards ========== */
+.tech-card {
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  padding: 16px 14px;
+}
+
+/* ========== Link transitions ========== */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media screen and (hover: hover) {
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* ========== Navigation ========== */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(13, 13, 13, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Screen-only wrapper */
+.screen-wrapper {
+  padding-top: 60px;
+}
+
+/* ========== Responsive scaling ========== */
+@media screen and (max-width: 900px) {
+  .portfolio-page {
+    width: 100%;
+    max-width: 100vw;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    overflow: visible;
+    box-shadow: 0 0 0 1px var(--border-subtle);
+    margin-bottom: 16px;
+    margin-top: 16px;
+  }
+
+  .page-safe {
+    padding: 32px 20px;
+    height: auto;
+    min-height: 0;
+  }
+
+  .headline-xl {
+    font-size: 40px;
+  }
+
+  .headline-lg {
+    font-size: 30px;
+  }
+
+  .headline-md {
+    font-size: 20px;
+  }
+
+  .body-text,
+  .body-text-bright {
+    font-size: 14px;
+  }
+
+  .body-lg {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .headline-xl {
+    font-size: 32px;
+  }
+
+  .headline-lg {
+    font-size: 24px;
+  }
+
+  .page-safe {
+    padding: 28px 16px;
+  }
+}
+
+/* ========== Print ========== */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #0D0D0D;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .portfolio-page {
+    width: 210mm;
+    height: 297mm;
+    min-height: 297mm;
+    max-height: 297mm;
+    overflow: hidden;
+    break-after: page;
+    page-break-after: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin: 0;
+    box-shadow: none !important;
+  }
+
+  .portfolio-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .page-safe {
+    padding: 18mm 16mm;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .screen-wrapper {
+    padding-top: 0;
+  }
+
+  .nav-bar {
+    display: none !important;
+  }
+
+  img {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .break-avoid {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
