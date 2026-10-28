@@ -1,4 +1,4 @@
-import { useState, type CSSProperties } from 'react';
+import { useState, useRef, useEffect, type CSSProperties } from 'react';
 import { Camera } from 'lucide-react';
 
 interface ImageFrameProps {
@@ -24,6 +24,14 @@ export default function ImageFrame({
 }: ImageFrameProps) {
   const [loaded, setLoaded] = useState(false);
   const [error, setError] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // Check if image is already cached/complete on mount
+  useEffect(() => {
+    if (imgRef.current && imgRef.current.complete && imgRef.current.naturalWidth > 0) {
+      setLoaded(true);
+    }
+  }, [src]);
 
   const overlayOpacity =
     overlayStrength === 'light'
@@ -39,9 +47,11 @@ export default function ImageFrame({
     >
       {!error && (
         <img
+          ref={imgRef}
           src={src}
           alt={alt}
           loading="lazy"
+          decoding="async"
           onLoad={() => setLoaded(true)}
           onError={() => setError(true)}
           style={{ opacity: loaded ? 1 : 0, transition: 'opacity 0.5s ease' }}
