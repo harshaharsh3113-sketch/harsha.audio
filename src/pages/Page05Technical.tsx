@@ -1,264 +1,628 @@
+
 import PortfolioPage from '@/components/PortfolioPage';
 import ImageFrame from '@/components/ImageFrame';
 
-const consoles = [
-  ['Allen & Heath', 'QU32 · dLive · SQ'],
-  ['Yamaha', 'Digital · Analog'],
-  ['Behringer', 'X32'],
-  ['Midas', 'Digital'],
-  ['Soundcraft', 'Ui24R'],
-  ['Avid', 'Production exposure · assisted operation'],
-  ['DiGiCo', 'Production exposure · assisted operation'],
+const consolePlatforms = [
+  { brand: 'MIDAS', models: 'M32 LIVE' },
+  { brand: 'YAMAHA', models: 'DM3 Series · Analogue Consoles' },
+  {
+    brand: 'ALLEN & HEATH',
+    models: 'QU-32 · SQ Series · dLive Series · Analogue Consoles',
+  },
+  { brand: 'BEHRINGER', models: 'X32 · WING' },
+  { brand: 'SOUNDCRAFT', models: 'Ui24R · Analogue Consoles' },
 ];
 
-const systemGroups = [
-  {
-    label: 'FOH & SIGNAL',
-    items: [
-      'FOH Mixing',
-      'Monitor Mixing',
-      'Gain Structure',
-      'Signal Flow',
-      'Patching',
-      'System Routing',
-      'Soundcheck',
-      'Troubleshooting',
-    ],
-  },
-  {
-    label: 'PA & STAGE',
-    items: [
-      'PA Systems',
-      'Line Arrays',
-      'Subwoofers',
-      'Stage Monitoring',
-      'Microphones',
-      'Wireless / RF',
-      'Changeovers',
-      'Stage Coordination',
-    ],
-  },
+const productionExposure = [
+  { brand: 'AVID', models: 'VENUE | S6L' },
+  { brand: 'DiGiCo', models: 'Quantum 338 · SD10' },
 ];
 
-const danteTopics = [
+const wirelessExperience = [
+  'Multiple wireless microphone connections',
+  'Frequency selection and coordination',
+  'Directional antenna setup',
+  'RF signal monitoring',
+  'In-ear monitoring connections',
+];
+
+const danteKnowledge = [
   'Dante Controller',
-  'Routing',
-  'Clocking',
-  'Multicast',
-  'QoS',
-  'Networked Audio',
+  'Device Discovery',
+  'Basic Audio Routing',
+  'Networked Audio Fundamentals',
 ];
+
+const environments = [
+  'Church & Worship',
+  'Weddings',
+  'Private Productions',
+  'Live Performances',
+  'College Events',
+  'Open-Air Productions',
+];
+
+const sectionBorder = 'border-t border-white/[0.12]';
+
+const microLabel =
+  'text-[10px] font-medium uppercase tracking-[0.22em] text-[#B99B73]';
+
+const sectionHeading =
+  'm-0 font-semibold uppercase leading-[0.88] tracking-[-0.078em] text-white';
+
+const bodyCopy =
+  'text-[0.86rem] leading-[1.95] text-white/45';
+
+const interactiveTransition =
+  'motion-safe:transition-all motion-safe:duration-500 motion-safe:ease-out';
 
 export default function Page05Technical() {
   return (
     <PortfolioPage
       pageId="page-technical"
       pageNumber=""
-      sectionLabel="05 / Technical Capability"
+      sectionLabel="05 / Technical Experience"
     >
       <div className="flex flex-col">
 
-        {/* =========================================================
-            INTRO
-        ========================================================= */}
+        {/* 01. INTRODUCTION */}
 
-        <section>
-          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <section
+          className="
+            group/intro grid grid-cols-1 gap-8
+            pb-12 md:grid-cols-[1.15fr_0.85fr]
+            md:items-end md:gap-14 md:pb-16
+          "
+        >
+          <div className="reveal-up">
 
-            <div className="group max-w-[650px]">
+            <p className={`${microLabel} mb-6`}>
+              Technical experience
+            </p>
 
-              <div className="flex items-center gap-3">
-                <span className="label-meta-bright transition-all duration-300 group-hover:tracking-[0.18em]">
-                  BEHIND THE CONSOLE
-                </span>
+            <h2 className="
+              m-0 text-[clamp(2.8rem,6.5vw,5.8rem)]
+              font-semibold uppercase
+              leading-[0.86] tracking-[-0.078em]
+              text-white
+            ">
+              THE
+              <br />
+              <span className={`
+                text-white/[0.28]
+                ${interactiveTransition}
+                group-hover/intro:text-white/55
+                group-active/intro:text-white/45
+              `}>
+                PRODUCTION SIDE.
+              </span>
+            </h2>
 
-                <span className="h-px w-10 bg-[#333] transition-all duration-[400ms] group-hover:w-16 group-hover:bg-[#555]" />
-              </div>
+            <div className={`
+              mt-8 h-px w-12 bg-[#B99B73]/65
+              ${interactiveTransition}
+              group-hover/intro:w-24
+            `} />
 
-              <h2 className="mt-4 text-[clamp(2.5rem,5vw,4.5rem)] font-semibold leading-[0.92] tracking-[-0.055em] text-white">
-                <span className="inline-block transition-transform duration-300 group-hover:translate-x-0.5">
-                  Technical
-                </span>
-                <br />
-                <span className="text-white/25 transition-colors duration-500 group-hover:text-white/50">
-                  depth matters.
-                </span>
-              </h2>
+          </div>
 
-              <p className="mt-5 max-w-[52ch] text-[clamp(0.95rem,1.25vw,1.05rem)] leading-[1.7] text-[#858585] transition-colors duration-300 group-hover:text-[#B5B5B5]">
-                Live sound extends beyond the mix. Understanding the console,
-                system, stage and signal path is what allows the show to remain
-                controlled when conditions change.
-              </p>
+          <div className="reveal-up md:pb-1">
 
-            </div>
+            <p className="
+              max-w-[44ch] text-[0.88rem]
+              leading-[1.9] text-white/55
+            ">
+              Experience is built through working with
+              different consoles, adapting to production
+              requirements and taking responsibility when
+              the show is live. My work spans mixing
+              platforms, wireless systems and the
+              practical demands of live audio production.
+            </p>
 
-            <div className="group">
+            <div className="mt-7 flex items-center gap-3">
+              <span className="
+                h-px w-7 bg-[#B99B73]/65
+                motion-safe:transition-all motion-safe:duration-500
+                group-hover/intro:w-12
+              " />
 
-              <ImageFrame
-                src="/image_011.jpg"
-                alt="FOH console"
-                className="aspect-[16/9] transition-all duration-700 group-hover:brightness-[1.06]"
-                overlay
-                overlayStrength="light"
-              />
-
-              <div className="mt-2.5 flex items-center justify-between">
-                <span className="label-meta text-[#454545] transition-colors duration-300 group-hover:text-[#666]">
-                  FRONT OF HOUSE
-                </span>
-
-                <span className="label-meta text-[#454545] transition-colors duration-300 group-hover:text-[#666]">
-                  CONTROL / MIXING
-                </span>
-              </div>
-
+              <span className="
+                text-[10px] uppercase
+                tracking-[0.18em] text-white/35
+              ">
+                Consoles · RF · Live production
+              </span>
             </div>
 
           </div>
         </section>
 
-        {/* =========================================================
-            CONSOLE EXPERIENCE
-        ========================================================= */}
 
-        <section className="mt-[clamp(4rem,7vw,5.5rem)]">
+        {/* 02. CONSOLE EXPERIENCE */}
 
-          <div className="border-t border-[#1F1F1F] pt-6">
+        <section className={`${sectionBorder} py-12 md:py-16 reveal-up`}>
 
-            <div className="grid gap-8 lg:grid-cols-[0.52fr_1.48fr]">
+          <div className="
+            group/console mb-9 flex flex-wrap
+            items-end justify-between gap-5
+          ">
 
-              <div className="group">
+            <div>
+              <p className={`${microLabel} mb-3`}>
+                Mixing platforms
+              </p>
 
-                <span className="label-meta text-[#555] transition-all duration-300 group-hover:tracking-[0.16em] group-hover:text-[#888]">
-                  CONSOLE EXPERIENCE
+              <h3 className="
+                m-0 text-[clamp(1.8rem,3.5vw,3rem)]
+                font-medium tracking-[-0.06em]
+                text-white
+              ">
+                Consoles & ecosystems.
+              </h3>
+
+              <div className="
+                mt-4 h-px w-8 bg-[#B99B73]/55
+                motion-safe:transition-all motion-safe:duration-500
+                group-hover/console:w-16
+              " />
+            </div>
+
+            <span className="
+              text-[9px] uppercase
+              tracking-[0.17em] text-white/30
+            ">
+              Digital & analogue
+            </span>
+
+          </div>
+
+
+          <div className="
+            grid grid-cols-1 gap-9
+            lg:grid-cols-[0.9fr_1.1fr]
+            lg:gap-[5vw]
+          ">
+
+            {/* QU-PAD IMAGE */}
+
+            <div className="min-w-0">
+
+              <div className="
+                group/image relative overflow-hidden
+                bg-[#171717]
+              ">
+
+                <div className="
+                  relative overflow-hidden
+                  [&_img]:motion-safe:transition-transform
+                  [&_img]:motion-safe:duration-700
+                  [&_img]:motion-safe:ease-out
+                  group-hover/image:[&_img]:scale-[1.025]
+                  group-active/image:[&_img]:scale-[1.015]
+                ">
+                  <ImageFrame
+                    src="/image_011.jpg"
+                    alt="Allen and Heath Qu-Pad remote mixing interface on an iPad"
+                  />
+                </div>
+
+                <div className="
+                  pointer-events-none absolute inset-0
+                  bg-gradient-to-t from-black/55
+                  via-transparent to-transparent
+                  opacity-70
+                  motion-safe:transition-opacity
+                  motion-safe:duration-500
+                  group-hover/image:opacity-100
+                " />
+
+                <span className="
+                  absolute bottom-4 left-4
+                  text-[9px] uppercase
+                  tracking-[0.18em] text-white/75
+                  motion-safe:transition-transform
+                  motion-safe:duration-500
+                  group-hover/image:translate-x-1
+                ">
+                  Allen & Heath / Qu-Pad
                 </span>
 
-                <h3 className="mt-4 max-w-[32ch] text-[clamp(1.35rem,2vw,1.75rem)] font-medium leading-[1.3] tracking-[-0.025em] text-[#D0D0D0] transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white">
-                  Comfortable adapting to different consoles, signal paths and
-                  live production workflows.
-                </h3>
+                <span className="
+                  pointer-events-none absolute right-4 top-4
+                  h-2 w-2 rounded-full
+                  border border-[#B99B73]/70
+                  bg-[#B99B73]/30
+                  opacity-0
+                  motion-safe:transition-opacity
+                  motion-safe:duration-500
+                  group-hover/image:opacity-100
+                " />
 
               </div>
 
-              <div>
+              <div className="
+                mt-4 flex flex-wrap
+                items-center justify-between gap-3
+              ">
+                <span className="
+                  text-[9px] uppercase
+                  tracking-[0.17em] text-white/35
+                ">
+                  Qu-32 / Remote mixing
+                </span>
 
-                <div className="divide-y divide-[#1F1F1F] border-y border-[#1F1F1F]">
+                <span className="
+                  text-[9px] uppercase
+                  tracking-[0.17em] text-[#B99B73]/75
+                ">
+                  Digital console interface
+                </span>
+              </div>
 
-                  {consoles.map(([name, detail], index) => (
-                    <div
-                      key={name}
-                      className="group relative flex min-h-[62px] items-center justify-between gap-6 py-4 transition-colors duration-300 hover:bg-white/[0.014]"
-                    >
+            </div>
 
-                      <div className="flex min-w-0 items-center gap-5">
 
-                        <span className="w-5 flex-shrink-0 text-[9px] tabular-nums text-[#3F3F3F] transition-colors duration-300 group-hover:text-[#777]">
-                          {String(index + 1).padStart(2, '0')}
-                        </span>
+            {/* CONSOLE INDEX */}
 
-                        <span
-                          className={`font-medium tracking-[-0.025em] transition-all duration-300 group-hover:translate-x-0.5 ${name === 'Avid' || name === 'DiGiCo'
-                            ? 'text-[clamp(1.15rem,1.9vw,1.45rem)] text-[#BDBDBD] group-hover:text-white'
-                            : 'text-[clamp(1.05rem,1.7vw,1.25rem)] text-[#9A9A9A] group-hover:text-white'
-                            }`}
-                        >
-                          {name}
-                        </span>
+            <div className="flex min-w-0 flex-col justify-center">
 
-                      </div>
+              <div className="border-t border-white/10">
 
-                      <span
-                        className={`max-w-[300px] text-right leading-[1.45] transition-colors duration-300 ${name === 'Avid' || name === 'DiGiCo'
-                          ? 'text-[11px] text-[#666] group-hover:text-[#A0A0A0]'
-                          : 'text-[10px] text-[#555] group-hover:text-[#777]'
-                          }`}
-                      >
-                        {detail}
+                {consolePlatforms.map((console, index) => (
+                  <div
+                    key={console.brand}
+                    className="
+                      group/row relative grid
+                      grid-cols-1 gap-2
+                      border-b border-white/10
+                      px-2 py-5
+                      transition-colors duration-300
+                      hover:bg-white/[0.025]
+                      active:bg-white/[0.045]
+                      sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]
+                      sm:gap-4
+                    "
+                  >
+
+                    <div className="flex items-start gap-3">
+
+                      <span className="
+                        pt-0.5 text-[9px]
+                        tabular-nums tracking-[0.12em]
+                        text-[#B99B73]/60
+                        motion-safe:transition-colors
+                        motion-safe:duration-300
+                        group-hover/row:text-[#B99B73]
+                      ">
+                        0{index + 1}
                       </span>
 
-                      <span className="absolute bottom-0 left-0 h-px w-0 bg-[#666] transition-all duration-[400ms] group-hover:w-12" />
+                      <h4 className="
+                        m-0 text-[11px] font-semibold
+                        uppercase tracking-[0.09em]
+                        text-white/75
+                        motion-safe:transition-colors
+                        motion-safe:duration-300
+                        group-hover/row:text-white
+                      ">
+                        {console.brand}
+                      </h4>
 
+                    </div>
+
+                    <p className="
+                      m-0 pl-8 text-[11px]
+                      leading-[1.8] text-white/45
+                      motion-safe:transition-colors
+                      motion-safe:duration-300
+                      group-hover/row:text-white/75
+                      sm:pl-0
+                    ">
+                      {console.models}
+                    </p>
+
+                    <span className="
+                      pointer-events-none absolute bottom-0 left-0
+                      h-px w-0 bg-[#B99B73]/65
+                      motion-safe:transition-all
+                      motion-safe:duration-500
+                      group-hover/row:w-full
+                    " />
+
+                  </div>
+                ))}
+
+              </div>
+
+
+              {/* ADDITIONAL PRODUCTION EXPOSURE */}
+
+              <div className="mt-9">
+
+                <p className="
+                  mb-5 text-[9px] uppercase
+                  tracking-[0.19em] text-white/35
+                ">
+                  Additional production exposure
+                </p>
+
+                <div className="
+                  grid grid-cols-1 gap-5
+                  sm:grid-cols-2
+                ">
+
+                  {productionExposure.map((console) => (
+                    <div
+                      key={console.brand}
+                      className="
+                        group/exposure border-l
+                        border-[#B99B73]/40 py-1 pl-4
+                        motion-safe:transition-all
+                        motion-safe:duration-300
+                        hover:border-[#B99B73]
+                        hover:pl-5
+                        active:border-[#B99B73]
+                      "
+                    >
+                      <h4 className="
+                        m-0 text-[12px] font-semibold
+                        tracking-[0.04em] text-white/80
+                        motion-safe:transition-colors
+                        motion-safe:duration-300
+                        group-hover/exposure:text-white
+                      ">
+                        {console.brand}
+                      </h4>
+
+                      <p className="
+                        mt-2 text-[11px]
+                        leading-[1.7] text-white/40
+                        motion-safe:transition-colors
+                        motion-safe:duration-300
+                        group-hover/exposure:text-white/65
+                      ">
+                        {console.models}
+                      </p>
                     </div>
                   ))}
 
                 </div>
 
-                <p className="mt-5 max-w-[70ch] text-[0.9rem] leading-[1.7] text-[#777] transition-colors duration-300 hover:text-[#A5A5A5]">
-                  Avid and DiGiCo experience has come through close production
-                  work and assisting senior engineers during live operation.
-                  This provides direct familiarity with their workflows and
-                  production environments without overstating independent
-                  mixing experience.
+                <p className="
+                  mt-5 max-w-[50ch]
+                  text-[11px] leading-[1.85]
+                  text-white/35
+                ">
+                  Avid and DiGiCo experience has been
+                  through assisting senior engineers
+                  and working alongside professional
+                  production teams.
                 </p>
 
               </div>
 
             </div>
-
           </div>
-
         </section>
 
-        {/* =========================================================
-            SYSTEMS & STAGE
-        ========================================================= */}
 
-        <section className="mt-[clamp(4.5rem,7vw,6rem)]">
+        {/* 03. PRODUCTION RESPONSIBILITY */}
 
-          <div className="border-t border-[#1F1F1F] pt-6">
+        <section className={`${sectionBorder} py-12 md:py-16 reveal-up`}>
 
-            <div className="grid gap-9 lg:grid-cols-[0.52fr_1.48fr]">
+          <div className="
+            grid grid-cols-1 gap-8
+            lg:grid-cols-[0.9fr_1.1fr]
+            lg:gap-[7vw]
+          ">
 
-              <div className="group">
+            <div className="group/ownership">
 
-                <span className="label-meta text-[#555] transition-all duration-300 group-hover:tracking-[0.16em] group-hover:text-[#888]">
-                  SYSTEMS & STAGE
+              <p className={`${microLabel} mb-5`}>
+                Practical experience
+              </p>
+
+              <h3 className={`
+                ${sectionHeading}
+                text-[clamp(2.8rem,5.8vw,5.3rem)]
+              `}>
+                TAKING
+                <br />
+                <span className="
+                  text-white/25
+                  motion-safe:transition-colors
+                  motion-safe:duration-500
+                  group-hover/ownership:text-white/45
+                ">
+                  OWNERSHIP.
                 </span>
+              </h3>
 
-                <h3 className="mt-4 max-w-[32ch] text-[clamp(1.2rem,1.7vw,1.5rem)] font-medium leading-[1.3] tracking-[-0.025em] text-[#D0D0D0] transition-all duration-300 group-hover:translate-x-0.5 group-hover:text-white">
-                  From patching and soundcheck to PA, stage and signal flow, I
-                  understand what keeps a production moving.
-                </h3>
+              <div className="
+                mt-7 h-px w-10 bg-[#B99B73]/55
+                motion-safe:transition-all
+                motion-safe:duration-500
+                group-hover/ownership:w-20
+              " />
 
-              </div>
+            </div>
 
-              <div className="grid gap-8 sm:grid-cols-2">
 
-                {systemGroups.map((group, index) => (
+            <div className="flex flex-col justify-center">
+
+              <p className="
+                max-w-[600px]
+                text-[clamp(1.1rem,1.8vw,1.55rem)]
+                font-light leading-[1.6]
+                tracking-[-0.025em] text-white/80
+              ">
+                My experience has given me the confidence
+                to take responsibility for the complete
+                audio operation of a live production.
+              </p>
+
+              <p className={`mt-6 max-w-[570px] ${bodyCopy}`}>
+                Through independently handling church
+                services, weddings and private productions,
+                I have developed the ability to understand
+                production requirements, prepare and manage
+                the audio setup, coordinate with performers
+                and stage teams, operate the show and respond
+                to technical issues as they arise.
+              </p>
+
+              <p className={`mt-5 max-w-[570px] ${bodyCopy}`}>
+                I am comfortable taking ownership of the
+                audio workflow from preparation through
+                live execution, rather than being limited
+                to a single task or console position.
+              </p>
+
+            </div>
+          </div>
+
+
+          {/* PRODUCTION ENVIRONMENTS */}
+
+          <div className="
+            mt-12 border-t border-white/10
+            pt-6 flex flex-wrap
+            items-center gap-x-5 gap-y-3
+          ">
+
+            {environments.map((item, index) => (
+              <span
+                key={item}
+                className="
+                  group/environment inline-flex
+                  items-center gap-5
+                  text-[9px] uppercase
+                  tracking-[0.14em] text-white/40
+                  motion-safe:transition-colors
+                  motion-safe:duration-300
+                  hover:text-white/80
+                  active:text-[#B99B73]
+                "
+              >
+                <span>{item}</span>
+
+                {index !== environments.length - 1 && (
+                  <span className="
+                    text-[#B99B73]/65
+                    motion-safe:transition-opacity
+                    motion-safe:duration-300
+                    group-hover/environment:opacity-100
+                  ">
+                    /
+                  </span>
+                )}
+              </span>
+            ))}
+
+          </div>
+        </section>
+
+
+        {/* 04. RF & WIRELESS */}
+
+        <section className={`${sectionBorder} py-12 md:py-16 reveal-up`}>
+
+          <div className="
+            grid grid-cols-1 gap-8
+            md:grid-cols-[0.85fr_1.15fr]
+            md:gap-14
+          ">
+
+            <div className="group/wireless">
+
+              <p className={`${microLabel} mb-5`}>
+                RF & wireless systems
+              </p>
+
+              <h3 className={`
+                ${sectionHeading}
+                text-[clamp(2.6rem,5.2vw,4.7rem)]
+              `}>
+                WIRELESS
+                <br />
+                <span className="
+                  text-white/25
+                  motion-safe:transition-colors
+                  motion-safe:duration-500
+                  group-hover/wireless:text-white/45
+                ">
+                  OPERATION.
+                </span>
+              </h3>
+
+              <div className="
+                mt-7 h-px w-10 bg-[#B99B73]/55
+                motion-safe:transition-all
+                motion-safe:duration-500
+                group-hover/wireless:w-20
+              " />
+
+            </div>
+
+
+            <div className="flex flex-col justify-center">
+
+              <p className="
+                max-w-[580px]
+                text-[clamp(1rem,1.5vw,1.25rem)]
+                font-light leading-[1.7]
+                tracking-[-0.02em] text-white/70
+              ">
+                Hands-on experience working with wireless
+                microphones, RF coordination and in-ear
+                monitoring in live production environments.
+              </p>
+
+              <div className="mt-7 border-t border-white/10">
+
+                {wirelessExperience.map((item, index) => (
                   <div
-                    key={group.label}
-                    className="group relative border-t border-[#2A2A2A] pt-4"
+                    key={item}
+                    className="
+                      group/rf relative flex items-center
+                      gap-5 border-b border-white/10
+                      px-2 py-4
+                      transition-colors duration-300
+                      hover:bg-white/[0.025]
+                      active:bg-white/[0.045]
+                    "
                   >
 
-                    <div className="flex items-center justify-between">
+                    <span className="
+                      w-5 shrink-0 text-[9px]
+                      tabular-nums tracking-[0.12em]
+                      text-[#B99B73]/65
+                      motion-safe:transition-colors
+                      motion-safe:duration-300
+                      group-hover/rf:text-[#B99B73]
+                    ">
+                      0{index + 1}
+                    </span>
 
-                      <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#666] transition-all duration-300 group-hover:tracking-[0.2em] group-hover:text-[#A0A0A0]">
-                        {group.label}
-                      </span>
+                    <span className="
+                      text-[12px] text-white/55
+                      motion-safe:transition-all
+                      motion-safe:duration-300
+                      group-hover/rf:translate-x-1
+                      group-hover/rf:text-white/90
+                    ">
+                      {item}
+                    </span>
 
-                      <span className="text-[9px] tabular-nums text-[#3F3F3F] transition-colors duration-300 group-hover:text-[#666]">
-                        0{index + 1}
-                      </span>
-
-                    </div>
-
-                    <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2.5">
-
-                      {group.items.map((item) => (
-                        <span
-                          key={item}
-                          className="group/item relative cursor-default text-[12px] font-medium leading-[1.5] text-[#777] transition-colors duration-200 hover:text-[#D0D0D0]"
-                        >
-                          {item}
-
-                          <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#777] transition-all duration-300 group-hover/item:w-full" />
-                        </span>
-                      ))}
-
-                    </div>
-
-                    <span className="absolute bottom-0 left-0 h-px w-0 bg-[#666] transition-all duration-[400ms] group-hover:w-14" />
+                    <span className="
+                      pointer-events-none absolute
+                      bottom-0 left-0 h-px w-0
+                      bg-[#B99B73]/60
+                      motion-safe:transition-all
+                      motion-safe:duration-500
+                      group-hover/rf:w-full
+                    " />
 
                   </div>
                 ))}
@@ -266,190 +630,231 @@ export default function Page05Technical() {
               </div>
 
             </div>
+          </div>
+        </section>
 
-            <div className="mt-9 grid gap-7 border-t border-[#1F1F1F] pt-7 sm:grid-cols-2">
 
-              <div className="group relative">
+        {/* 05. DANTE CERTIFICATIONS */}
 
-                <span className="label-meta text-[#555] transition-all duration-300 group-hover:tracking-[0.16em] group-hover:text-[#888]">
-                  RF / WIRELESS
-                </span>
+        <section className={`${sectionBorder} py-12 md:py-16 reveal-up`}>
 
-                <div className="mt-3">
-                  <span className="text-[15px] font-medium text-[#C0C0C0] transition-colors duration-300 group-hover:text-white">
-                    Basic → Intermediate
-                  </span>
-                </div>
+          <div className="
+            grid grid-cols-1 gap-9
+            md:grid-cols-[0.85fr_1.15fr]
+            md:gap-14
+          ">
 
-                <p className="mt-3 max-w-[50ch] text-[0.9rem] leading-[1.7] text-[#707070] transition-colors duration-300 group-hover:text-[#9A9A9A]">
-                  Working knowledge of wireless microphone setup, frequency
-                  awareness, RF fundamentals and practical coordination during
-                  live production.
-                </p>
+            <div className="group/dante">
 
-                <span className="absolute -bottom-4 left-0 h-px w-0 bg-[#555] transition-all duration-[400ms] group-hover:w-10" />
+              <p className={`${microLabel} mb-5`}>
+                Networked audio
+              </p>
 
-              </div>
+              <h3 className="
+                m-0 text-[clamp(3.8rem,8vw,7rem)]
+                font-semibold uppercase
+                leading-[0.82] tracking-[-0.085em]
+                text-white
+              ">
+                DANTE<span className="
+                  text-[#B99B73]
+                  motion-safe:transition-colors
+                  motion-safe:duration-500
+                  group-hover/dante:text-white
+                ">.</span>
+              </h3>
 
-              <div className="group relative sm:border-l sm:border-[#1F1F1F] sm:pl-8">
+              <p className="
+                mt-5 text-[10px] uppercase
+                tracking-[0.18em] text-white/35
+              ">
+                Audinate / Levels 1, 2 & 3
+              </p>
 
-                <span className="label-meta text-[#555] transition-all duration-300 group-hover:tracking-[0.16em] group-hover:text-[#888]">
-                  PA / STAGE
-                </span>
-
-                <p className="mt-3 max-w-[50ch] text-[0.9rem] leading-[1.7] text-[#707070] transition-colors duration-300 group-hover:text-[#9A9A9A]">
-                  Practical understanding of speaker, microphone and cable
-                  selection, line arrays, subs, monitors, rigging awareness
-                  and signal flow.
-                </p>
-
-                <span className="absolute -bottom-4 left-0 h-px w-0 bg-[#555] transition-all duration-[400ms] group-hover:w-10" />
-
-              </div>
+              <p className="
+                mt-6 max-w-[39ch]
+                text-[0.85rem] leading-[1.9]
+                text-white/45
+              ">
+                Completed all three levels of Audinate
+                Dante certification, developing foundational
+                knowledge of networked audio and the
+                Dante ecosystem.
+              </p>
 
             </div>
 
-          </div>
 
-        </section>
+            <div className="flex flex-col justify-center">
 
-        {/* =========================================================
-            NETWORKED AUDIO / DANTE
-        ========================================================= */}
+              <div className="
+                flex flex-wrap items-center
+                justify-between gap-3
+                border-b border-white/10 pb-5
+              ">
 
-        <section className="mt-[clamp(4.5rem,7vw,6rem)]">
-
-          <div className="group relative border-y border-[#1F1F1F]">
-
-            <span className="absolute left-0 top-0 h-px w-0 bg-[#777] transition-all duration-700 group-hover:w-28" />
-
-            <div className="grid lg:grid-cols-[0.52fr_1.48fr]">
-
-              <div className="border-b border-[#1F1F1F] py-7 lg:border-b-0 lg:border-r lg:py-8 lg:pr-9">
-
-                <span className="label-meta text-[#555] transition-all duration-300 group-hover:tracking-[0.18em] group-hover:text-[#888]">
-                  NETWORKED AUDIO
+                <span className="
+                  text-[9px] uppercase
+                  tracking-[0.19em] text-white/35
+                ">
+                  Certifications completed
                 </span>
 
-                <div className="mt-6">
+                <span className="
+                  text-[9px] uppercase
+                  tracking-[0.16em] text-[#B99B73]
+                ">
+                  01 / 02 / 03
+                </span>
 
-                  <span className="block text-[clamp(2.8rem,5vw,4.5rem)] font-medium leading-none tracking-[-0.065em] text-[#C8C8C8] transition-all duration-500 group-hover:translate-x-0.5 group-hover:text-white">
-                    Dante
-                  </span>
+              </div>
 
-                  <p className="mt-2 text-[clamp(0.95rem,1.3vw,1.1rem)] font-medium leading-[1.4] tracking-[-0.015em] text-[#8A8A8A] transition-colors duration-300 group-hover:text-[#C0C0C0]">
-                    Certified.
-                  </p>
 
-                  <div className="mt-3 flex items-center gap-3">
+              <div className="grid grid-cols-3 gap-4 py-7">
 
-                    <span className="h-px w-7 bg-[#3A3A3A] transition-all duration-500 group-hover:w-12 group-hover:bg-[#666]" />
+                {['01', '02', '03'].map((level) => (
+                  <div
+                    key={level}
+                    className="
+                      group/level relative
+                      border-b border-white/10 pb-4
+                      active:border-[#B99B73]/70
+                    "
+                  >
 
-                    <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-[#666] transition-colors duration-300 group-hover:text-[#999]">
-                      LEVEL 1 · 2 · 3
+                    <span className="
+                      block text-[clamp(2.7rem,5vw,4.5rem)]
+                      font-light leading-none
+                      tracking-[-0.08em] text-white/80
+                      motion-safe:transition-all
+                      motion-safe:duration-500
+                      group-hover/level:-translate-y-1
+                      group-hover/level:text-[#B99B73]
+                    ">
+                      {level}
+                    </span>
+
+                    <span className="
+                      mt-3 block text-[9px]
+                      uppercase tracking-[0.16em]
+                      text-white/35
+                      motion-safe:transition-colors
+                      motion-safe:duration-300
+                      group-hover/level:text-white/65
+                    ">
+                      Certified
                     </span>
 
                   </div>
-
-                </div>
-
-              </div>
-
-              <div className="py-7 lg:py-8 lg:pl-9">
-
-                <div className="max-w-[700px]">
-
-                  <p className="text-[clamp(1.1rem,1.7vw,1.4rem)] font-medium leading-[1.45] tracking-[-0.02em] text-[#C5C5C5] transition-colors duration-300 group-hover:text-white">
-                    Certified across all three levels, with practical knowledge
-                    of Dante-based audio workflows and networked signal
-                    transport.
-                  </p>
-
-                  <p className="mt-4 max-w-[62ch] text-[0.9rem] leading-[1.7] text-[#707070] transition-colors duration-300 group-hover:text-[#999]">
-                    Working knowledge includes Dante Controller, routing,
-                    clocking, multicast, QoS and the fundamentals of networked
-                    audio used in live production.
-                  </p>
-
-                </div>
-
-                <div className="mt-7 border-t border-[#1F1F1F] pt-5">
-
-                  <div className="flex flex-wrap gap-x-7 gap-y-3.5">
-
-                    {danteTopics.map((item, index) => (
-                      <div
-                        key={item}
-                        className="group/item flex items-center gap-2"
-                      >
-
-                        <span className="text-[8px] tabular-nums text-[#3F3F3F] transition-colors duration-300 group-hover/item:text-[#777]">
-                          0{index + 1}
-                        </span>
-
-                        <span className="relative text-[12px] font-medium tracking-[0.035em] text-[#686868] transition-all duration-200 group-hover/item:-translate-y-0.5 group-hover/item:text-[#C0C0C0]">
-                          {item}
-
-                          <span className="absolute -bottom-1 left-0 h-px w-0 bg-[#777] transition-all duration-300 group-hover/item:w-full" />
-                        </span>
-
-                      </div>
-                    ))}
-
-                  </div>
-
-                </div>
+                ))}
 
               </div>
 
-            </div>
 
-          </div>
+              <div className="border-t border-white/10 pt-6">
 
-        </section>
-
-        {/* =========================================================
-            INDEPENDENT OPERATION
-        ========================================================= */}
-
-        <section className="mt-[clamp(5rem,8vw,6.5rem)]">
-
-          <div className="group border-t border-[#1F1F1F] pt-7">
-
-            <div className="grid gap-8 lg:grid-cols-[0.52fr_1.48fr] lg:items-end">
-
-              <div>
-
-                <span className="label-meta text-[#555] transition-all duration-300 group-hover:tracking-[0.17em] group-hover:text-[#888]">
-                  INDEPENDENT OPERATION
-                </span>
-
-              </div>
-
-              <div>
-
-                <h3 className="max-w-[800px] text-[clamp(2.3rem,4.5vw,4rem)] font-medium leading-[0.96] tracking-[-0.055em] text-[#C8C8C8] transition-colors duration-500 group-hover:text-white">
-                  Know the system.
-                  <br />
-                  <span className="text-white/25 transition-colors duration-500 group-hover:text-white/45">
-                    Run the show.
-                  </span>
-                </h3>
-
-                <p className="mt-5 max-w-[65ch] text-[clamp(0.95rem,1.2vw,1.05rem)] leading-[1.75] text-[#707070] transition-colors duration-300 group-hover:text-[#A0A0A0]">
-                  I can independently take responsibility for setup, patching,
-                  line check, soundcheck, mixing, monitoring, troubleshooting,
-                  changeovers and live operation.
+                <p className="
+                  mb-4 text-[9px] uppercase
+                  tracking-[0.19em] text-white/35
+                ">
+                  Foundational knowledge
                 </p>
 
+                <div className="flex flex-wrap gap-x-5 gap-y-3">
+
+                  {danteKnowledge.map((topic) => (
+                    <span
+                      key={topic}
+                      className="
+                        text-[10px] uppercase
+                        tracking-[0.1em] text-white/45
+                        motion-safe:transition-colors
+                        motion-safe:duration-300
+                        hover:text-[#B99B73]
+                        active:text-[#B99B73]
+                      "
+                    >
+                      {topic}
+                    </span>
+                  ))}
+
+                </div>
+
               </div>
+
+
+              <p className="
+                mt-6 border-l border-[#B99B73]/55
+                pl-4 text-[11px] leading-[1.85]
+                text-white/40
+              ">
+                My current Dante experience is certification-based
+                with foundational knowledge. I have not yet
+                undertaken professional Dante system deployment
+                in a live production environment.
+              </p>
+
+            </div>
+          </div>
+        </section>
+
+
+        {/* 06. CLOSING STATEMENT */}
+
+        <section className="
+          group/closing mt-2 border-t
+          border-white/[0.12] pt-8
+          md:pt-10 reveal-up
+        ">
+
+          <div className="
+            grid grid-cols-1 gap-5
+            md:grid-cols-[1fr_auto]
+            md:items-end
+          ">
+
+            <div>
+
+              <p className="
+                mb-3 text-[10px] uppercase
+                tracking-[0.2em] text-[#B99B73]/80
+              ">
+                The experience
+              </p>
+
+              <p className="
+                m-0 max-w-[46ch]
+                text-[clamp(1.2rem,2.3vw,1.8rem)]
+                font-medium leading-[1.4]
+                tracking-[-0.045em] text-white/80
+                motion-safe:transition-colors
+                motion-safe:duration-500
+                group-hover/closing:text-white
+              ">
+                Experience builds the confidence to take
+                responsibility when the performance begins.
+              </p>
+
+              <div className="
+                mt-5 h-px w-8 bg-[#B99B73]/55
+                motion-safe:transition-all
+                motion-safe:duration-500
+                group-hover/closing:w-16
+              " />
 
             </div>
 
-            <div className="mt-7 h-px w-14 bg-[#3D3D3D] transition-all duration-500 group-hover:w-28 group-hover:bg-[#666]" />
+            <span className="
+              text-[10px] uppercase
+              tracking-[0.18em] text-white/35
+              motion-safe:transition-colors
+              motion-safe:duration-300
+              group-hover/closing:text-[#B99B73]
+            ">
+              Live Sound Engineer
+            </span>
 
           </div>
-
         </section>
 
       </div>

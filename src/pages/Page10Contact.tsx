@@ -1,1086 +1,663 @@
+
 import PortfolioPage from '@/components/PortfolioPage';
-import Magnetic from '@/components/Magnetic';
 import {
   ArrowUpRight,
   Mail,
-  Phone,
   Instagram,
+  MapPin,
 } from 'lucide-react';
 
+/* =========================================================
+   CONTACT DETAILS
+========================================================= */
+
 const PHONE_DISPLAY = '+91 7348967889';
+const EMAIL = 'bookings.harsha@gmail.com';
+const INSTAGRAM_HANDLE = '@harrrshhhaa';
 
 const WHATSAPP_LINK =
-  'https://wa.me/917348967889';
+  'https://api.whatsapp.com/send/?phone=917348967889&text=Hey+Harsha%2C+got+something+on+the+calendar+and+wanted+to+run+it+by+you.%0ACan+we+talk%3F+%E3%83%84&type=phone_number&app_absent=0';
 
-const EMAIL = 'bookings.harsha@gmail.com';
-
-const GMAIL_LINK =
-  'https://mail.google.com/mail/?view=cm&fs=1&to=bookings.harsha@gmail.com';
-
-const INSTAGRAM_HANDLE = '@harrrshhhaa';
+const EMAIL_LINK =
+  `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(EMAIL)}`;
 
 const INSTAGRAM_LINK =
   'https://instagram.com/harrrshhhaa';
 
 /* =========================================================
-   FINAL WHATSAPP CTA
-   Only the final CTA uses a pre-filled message.
+   PAGE
 ========================================================= */
-
-const WHATSAPP_BOOKING_MESSAGE = encodeURIComponent(
-  `Hey Harsha, got something on the calendar and wanted to run it by you.
-Can we talk? ツ`
-);
-
-const WHATSAPP_BOOKING_LINK =
-  `https://wa.me/917348967889?text=${WHATSAPP_BOOKING_MESSAGE}`;
-
-
-/* =========================================================
-   MOTION
-========================================================= */
-
-const EASE =
-  'ease-[cubic-bezier(0.22,1,0.36,1)]';
-
-
-/* =========================================================
-   CONTACT CHANNELS
-========================================================= */
-
-const contactMethods = [
-  {
-    number: '01',
-    label: 'WHATSAPP',
-    value: PHONE_DISPLAY,
-    detail: 'Direct conversation',
-    href: WHATSAPP_LINK,
-    icon: Phone,
-  },
-  {
-    number: '02',
-    label: 'EMAIL',
-    value: EMAIL,
-    detail: 'Bookings & production enquiries',
-    href: GMAIL_LINK,
-    icon: Mail,
-  },
-  {
-    number: '03',
-    label: 'INSTAGRAM',
-    value: INSTAGRAM_HANDLE,
-    detail: 'Work & production archive',
-    href: INSTAGRAM_LINK,
-    icon: Instagram,
-  },
-];
-
 
 export default function Page10Contact() {
   return (
     <PortfolioPage
       pageId="page-contact"
       pageNumber=""
-      sectionLabel="10 / Contact"
+      sectionLabel="Final / Contact"
     >
+      <div className="group/page relative isolate">
 
-      <div className="relative">
+        {/* BACKGROUND ACCENT */}
 
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute -right-36 top-0 -z-10
+            h-[420px] w-[420px]
+            rounded-full
+            bg-[#B99B73]/[0.025]
+            blur-[120px]
+          "
+        />
 
         {/* =====================================================
-            OPENING
+            01. OPENING
         ===================================================== */}
 
         <section
           className="
+            group/intro
             relative
-            pb-[clamp(5rem,9vw,8rem)]
+            pb-[clamp(3.5rem,7vw,5.5rem)]
+            pt-[clamp(2rem,4vw,3rem)]
+            reveal-up
           "
         >
 
-          {/* HEADER */}
+          {/* EYEBROW */}
 
-          <div
-            className="
-              flex
-              items-center
-              gap-3
-            "
-          >
+          <div className="mb-8 flex items-center gap-4">
 
             <span
               className="
-                text-[8px]
-                font-medium
-                uppercase
-                tracking-[0.18em]
-                text-[#8A8A8A]
-              "
-            >
-              CONTACT / BOOKINGS
-            </span>
-
-            <span
-              className="
-                h-px
-                w-9
-                bg-[#353535]
+                h-px w-8 bg-[#B99B73]
+                motion-safe:transition-all
+                motion-safe:duration-500
+                group-hover/intro:w-14
               "
             />
 
-            <span
-              className="
-                text-[8px]
-                uppercase
-                tracking-[0.16em]
-                text-[#444]
-              "
-            >
-              BENGALURU / INDIA
+            <span className="label-meta text-[#B99B73]">
+              Production Enquiries
             </span>
 
           </div>
 
-
-          {/* HERO */}
+          {/* MAIN COMPOSITION */}
 
           <div
             className="
-              group
-              mt-[clamp(4rem,8vw,7rem)]
-              max-w-[1000px]
+              grid grid-cols-1 gap-9
+              lg:grid-cols-[1.45fr_0.55fr]
+              lg:items-end
             "
           >
 
-            {/* availability marker */}
+            {/* HEADLINE */}
 
-            <div
-              className="
-                mb-6
-                flex
-                items-center
-                gap-3
-              "
-            >
+            <div>
 
-              <span
-                className={`
-                  h-px
-                  w-8
-                  bg-[#444]
-                  transition-all
-                  duration-700
-                  ${EASE}
-                  group-hover:w-14
-                  group-hover:bg-[#777]
-                `}
-              />
-
-              <span
+              <h1
                 className="
-                  text-[8px]
-                  uppercase
-                  tracking-[0.2em]
-                  text-[#4A4A4A]
-                  transition-colors
-                  duration-500
-                  group-hover:text-[#777]
+                  m-0
+                  text-[clamp(2.8rem,6.4vw,5.5rem)]
+                  font-light uppercase
+                  leading-[0.88]
+                  tracking-[-0.07em]
+                  text-white
                 "
               >
-                AVAILABLE FOR LIVE PRODUCTIONS
-              </span>
+                LET'S TALK ABOUT
+                <br />
 
-            </div>
-
-
-            {/* headline */}
-
-            <h1
-              className="
-                cursor-default
-                text-[clamp(3.5rem,8.5vw,8rem)]
-                font-semibold
-                leading-[0.82]
-                tracking-[-0.075em]
-                text-white
-              "
-            >
-              Let's talk
-              <br />
-
-              <span
-                className={`
-                  inline-block
-                  text-[#5D5D5D]
-                  transition-all
-                  duration-1000
-                  ${EASE}
-                  group-hover:translate-x-[7px]
-                  group-hover:text-[#A0A0A0]
-                `}
-              >
-                about the show.
-              </span>
-            </h1>
-
-
-            {/* intro */}
-
-            <div
-              className="
-                mt-8
-                flex
-                max-w-[610px]
-                items-start
-                gap-5
-              "
-            >
-
-              <span
-                className={`
-                  mt-[9px]
-                  h-px
-                  w-9
-                  shrink-0
-                  bg-[#444]
-                  transition-all
-                  duration-700
-                  ${EASE}
-                  group-hover:w-16
-                  group-hover:bg-[#777]
-                `}
-              />
-
-              <p
-                className="
-                  text-[0.88rem]
-                  leading-[1.75]
-                  text-[#686868]
-                  transition-colors
-                  duration-700
-                  group-hover:text-[#888]
-                "
-              >
-                Have a production coming up?
-                Send me the date, venue, setup and what you need from FOH.
-                We can take it from there.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          {/* quiet index */}
-
-          <div
-            className="
-              absolute
-              bottom-2
-              right-0
-              hidden
-              text-[8px]
-              uppercase
-              tracking-[0.18em]
-              text-[#303030]
-              sm:block
-            "
-          >
-            FINAL / CONTACT
-          </div>
-
-        </section>
-
-
-
-        {/* =====================================================
-            DIRECT CONTACT
-        ===================================================== */}
-
-        <section
-          className="
-            border-t
-            border-[#1D1D1D]
-          "
-        >
-
-          {/* section header */}
-
-          <div
-            className="
-              flex
-              items-center
-              justify-between
-              py-4
-            "
-          >
-
-            <span
-              className="
-                text-[8px]
-                font-medium
-                uppercase
-                tracking-[0.18em]
-                text-[#777]
-              "
-            >
-              DIRECT CONTACT
-            </span>
-
-            <span
-              className="
-                text-[8px]
-                uppercase
-                tracking-[0.16em]
-                text-[#383838]
-              "
-            >
-              03 CHANNELS
-            </span>
-
-          </div>
-
-
-          {/* contact rows */}
-
-          <div>
-
-            {contactMethods.map((method) => {
-              const Icon = method.icon;
-
-              return (
-                <a
-                  key={method.number}
-                  href={method.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cursor={method.label === 'WHATSAPP' ? 'CHAT' : method.label === 'EMAIL' ? 'WRITE' : 'VISIT'}
-                  className={`
-                    group
-                    relative
-                    block
-                    overflow-hidden
-                    border-t
-                    border-[#1D1D1D]
-                    py-6
-                    transition-colors
-                    duration-700
-                    ${EASE}
-                    hover:bg-[#0A0A0A]
-                  `}
+                <span
+                  className="
+                    text-white/30
+                    motion-safe:transition-colors
+                    motion-safe:duration-700
+                    group-hover/intro:text-white/55
+                  "
                 >
-
-                  {/* soft hover wash */}
-
-                  <span
-                    className="
-                      pointer-events-none
-                      absolute
-                      inset-0
-                      bg-white/[0.012]
-                      opacity-0
-                      transition-opacity
-                      duration-700
-                      group-hover:opacity-100
-                    "
-                  />
-
-
-                  {/* left active signal */}
-
-                  <span
-                    className={`
-                      absolute
-                      bottom-0
-                      left-0
-                      top-0
-                      w-px
-                      origin-bottom
-                      scale-y-0
-                      bg-[#777]
-                      transition-transform
-                      duration-700
-                      ${EASE}
-                      group-hover:scale-y-100
-                    `}
-                  />
-
-
-                  {/* row content */}
-
-                  <div
-                    className={`
-                      relative
-                      z-10
-                      grid
-                      grid-cols-[30px_34px_minmax(0,1fr)_auto]
-                      items-center
-                      gap-4
-                      transition-transform
-                      duration-700
-                      ${EASE}
-                      group-hover:translate-x-[5px]
-                      sm:grid-cols-[42px_36px_minmax(180px,0.8fr)_minmax(180px,1fr)_auto]
-                      sm:gap-5
-                    `}
-                  >
-
-                    {/* number */}
-
-                    <span
-                      className="
-                        text-[8px]
-                        tracking-[0.16em]
-                        text-[#393939]
-                        transition-colors
-                        duration-500
-                        group-hover:text-[#707070]
-                      "
-                    >
-                      {method.number}
-                    </span>
-
-
-                    {/* icon */}
-
-                    <span
-                      className="
-                        flex
-                        h-8
-                        w-8
-                        items-center
-                        justify-center
-                        border
-                        border-[#292929]
-                        text-[#555]
-                        transition-all
-                        duration-700
-                        group-hover:border-[#555]
-                        group-hover:bg-[#141414]
-                        group-hover:text-white
-                      "
-                    >
-                      <Icon
-                        size={13}
-                        strokeWidth={1.35}
-                        className={`
-                          transition-transform
-                          duration-700
-                          ${EASE}
-                          group-hover:-translate-y-[1px]
-                        `}
-                      />
-                    </span>
-
-
-                    {/* contact */}
-
-                    <div className="min-w-0">
-
-                      <span
-                        className="
-                          block
-                          text-[8px]
-                          font-medium
-                          uppercase
-                          tracking-[0.18em]
-                          text-[#454545]
-                          transition-colors
-                          duration-500
-                          group-hover:text-[#777]
-                        "
-                      >
-                        {method.label}
-                      </span>
-
-                      <span
-                        className="
-                          mt-1.5
-                          block
-                          truncate
-                          text-[clamp(0.95rem,1.7vw,1.15rem)]
-                          font-medium
-                          tracking-[-0.025em]
-                          text-[#929292]
-                          transition-colors
-                          duration-500
-                          group-hover:text-white
-                        "
-                      >
-                        {method.value}
-                      </span>
-
-                    </div>
-
-
-                    {/* detail */}
-
-                    <span
-                      className="
-                        hidden
-                        text-[10px]
-                        leading-[1.5]
-                        text-[#464646]
-                        transition-colors
-                        duration-500
-                        group-hover:text-[#707070]
-                        sm:block
-                      "
-                    >
-                      {method.detail}
-                    </span>
-
-
-                    {/* open */}
-
-                    <span
-                      className="
-                        flex
-                        items-center
-                        gap-2
-                        text-[8px]
-                        font-medium
-                        uppercase
-                        tracking-[0.16em]
-                        text-[#464646]
-                        transition-colors
-                        duration-500
-                        group-hover:text-[#A0A0A0]
-                      "
-                    >
-
-                      <span className="hidden sm:block">
-                        OPEN
-                      </span>
-
-                      <ArrowUpRight
-                        size={13}
-                        strokeWidth={1.35}
-                        className={`
-                          transition-transform
-                          duration-700
-                          ${EASE}
-                          group-hover:-translate-y-[2px]
-                          group-hover:translate-x-[2px]
-                        `}
-                      />
-
-                    </span>
-
-                  </div>
-
-
-                  {/* signal line */}
-
-                  <span
-                    className={`
-                      absolute
-                      bottom-0
-                      left-0
-                      h-px
-                      w-0
-                      bg-[#777]
-                      transition-all
-                      duration-700
-                      ${EASE}
-                      group-hover:w-20
-                    `}
-                  />
-
-                </a>
-              );
-            })}
-
-          </div>
-
-        </section>
-
-
-
-        {/* =====================================================
-            PRODUCTION STATEMENT
-        ===================================================== */}
-
-        <section
-          className="
-            mt-[clamp(5rem,8vw,7rem)]
-          "
-        >
-
-          <div
-            className="
-              grid
-              grid-cols-1
-              gap-10
-              md:grid-cols-[minmax(0,1fr)_250px]
-              md:items-end
-              md:gap-16
-            "
-          >
-
-            {/* statement */}
-
-            <div className="group">
-
-              <span
-                className="
-                  text-[8px]
-                  font-medium
-                  uppercase
-                  tracking-[0.18em]
-                  text-[#777]
-                "
-              >
-                FOR PRODUCTIONS
-              </span>
-
-
-              <p
-                className="
-                  mt-5
-                  max-w-[720px]
-                  text-[clamp(1.2rem,2.5vw,1.85rem)]
-                  font-medium
-                  leading-[1.32]
-                  tracking-[-0.03em]
-                  text-[#777]
-                  transition-colors
-                  duration-700
-                  group-hover:text-[#A0A0A0]
-                "
-              >
-                Got a stage?
-                <span className="text-white">
-                  {' '}I've got the mix.
+                  YOUR NEXT SHOW.
                 </span>
-              </p>
+              </h1>
 
-            </div>
+              <div className="mt-7 flex items-start gap-4">
 
-
-            {/* location */}
-
-            <div
-              className="
-                border-l
-                border-[#292929]
-                pl-5
-              "
-            >
-
-              <span
-                className="
-                  text-[8px]
-                  font-medium
-                  uppercase
-                  tracking-[0.18em]
-                  text-[#444]
-                "
-              >
-                BASED IN
-              </span>
-
-              <p
-                className="
-                  mt-2
-                  text-[12px]
-                  font-medium
-                  text-[#888]
-                "
-              >
-                Bengaluru, India
-              </p>
-
-              <p
-                className="
-                  mt-2
-                  max-w-[180px]
-                  text-[9px]
-                  leading-[1.65]
-                  text-[#4C4C4C]
-                "
-              >
-                Available for live productions
-                and FOH engineering.
-              </p>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-
-        {/* =====================================================
-            WHATSAPP CTA
-            ONLY PREFILLED CONTACT ACTION
-        ===================================================== */}
-
-        <section
-          className="
-            mt-[clamp(4.5rem,8vw,7rem)]
-          "
-        >
-
-          <Magnetic strength={9} className="w-full">
-            <a
-              href={WHATSAPP_BOOKING_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="CONTACT"
-              className={`
-                group
-                relative
-                block
-                overflow-hidden
-                border
-                border-[#2C2C2C]
-                bg-[#090909]
-                px-6
-                py-7
-                transition-all
-                duration-700
-                ${EASE}
-                hover:border-[#555]
-                hover:bg-[#0B0B0B]
-                sm:px-8
-                sm:py-8
-              `}
-            >
-
-            {/* top accent */}
-
-            <span
-              className={`
-                absolute
-                left-0
-                top-0
-                h-px
-                w-0
-                bg-[#888]
-                transition-all
-                duration-700
-                ${EASE}
-                group-hover:w-32
-              `}
-            />
-
-
-            {/* bottom accent */}
-
-            <span
-              className={`
-                absolute
-                bottom-0
-                right-0
-                h-px
-                w-0
-                bg-[#888]
-                transition-all
-                duration-700
-                ${EASE}
-                group-hover:w-32
-              `}
-            />
-
-
-            {/* CTA content */}
-
-            <div
-              className={`
-                relative
-                z-10
-                flex
-                flex-col
-                gap-7
-                transition-transform
-                duration-700
-                ${EASE}
-                group-hover:translate-x-[4px]
-                sm:flex-row
-                sm:items-end
-                sm:justify-between
-              `}
-            >
-
-              {/* copy */}
-
-              <div>
-
-                <div
+                <span
                   className="
-                    flex
-                    items-center
-                    gap-3
+                    mt-[9px] h-px w-7 shrink-0
+                    bg-[#B99B73]/60
                   "
-                >
-
-                  <span
-                    className="
-                      h-px
-                      w-7
-                      bg-[#444]
-                      transition-all
-                      duration-700
-                      group-hover:w-12
-                      group-hover:bg-[#777]
-                    "
-                  />
-
-                  <span
-                    className="
-                      text-[8px]
-                      font-medium
-                      uppercase
-                      tracking-[0.19em]
-                      text-[#555]
-                      transition-colors
-                      duration-500
-                      group-hover:text-[#888]
-                    "
-                  >
-                    FASTEST WAY TO START
-                  </span>
-
-                </div>
-
-
-                <h2
-                  className="
-                    mt-4
-                    text-[clamp(1.25rem,2.7vw,2rem)]
-                    font-medium
-                    leading-[1.15]
-                    tracking-[-0.035em]
-                    text-[#A0A0A0]
-                    transition-colors
-                    duration-700
-                    group-hover:text-white
-                  "
-                >
-                  Message me on WhatsApp.
-                </h2>
-
+                />
 
                 <p
                   className="
-                    mt-2
-                    text-[9px]
-                    text-[#454545]
-                    transition-colors
-                    duration-500
-                    group-hover:text-[#666]
+                    max-w-[440px]
+                    text-[clamp(0.82rem,1vw,0.9rem)]
+                    leading-[1.85]
+                    text-white/45
+                    motion-safe:transition-colors
+                    motion-safe:duration-500
+                    group-hover/intro:text-white/65
                   "
                 >
-                  Got a show? Let's make it sound like one.
+                  For live productions, FOH engineering and event
+                  enquiries. Tell me about the show, the venue
+                  and what you're looking to achieve.
                 </p>
 
               </div>
 
-
-              {/* action */}
-
-              <div
-                className="
-                  flex
-                  shrink-0
-                  items-center
-                  gap-3
-                  text-[8px]
-                  font-medium
-                  uppercase
-                  tracking-[0.18em]
-                  text-[#555]
-                  transition-colors
-                  duration-500
-                  group-hover:text-white
-                "
-              >
-
-                <span>
-                  START CONVERSATION
-                </span>
-
-                <span
-                  className={`
-                    flex
-                    h-8
-                    w-8
-                    items-center
-                    justify-center
-                    border
-                    border-[#333]
-                    transition-all
-                    duration-700
-                    ${EASE}
-                    group-hover:border-[#777]
-                    group-hover:bg-white
-                    group-hover:text-black
-                  `}
-                >
-
-                  <ArrowUpRight
-                    size={14}
-                    strokeWidth={1.35}
-                    className={`
-                      transition-transform
-                      duration-700
-                      ${EASE}
-                      group-hover:-translate-y-[2px]
-                      group-hover:translate-x-[2px]
-                    `}
-                  />
-
-                </span>
-
-              </div>
-
             </div>
 
-          </a>
-        </Magnetic>
-
-        </section>
-
-
-
-        {/* =====================================================
-            FINAL SIGNATURE
-        ===================================================== */}
-
-        <section
-          className="
-            mt-[clamp(6rem,10vw,9rem)]
-            pb-2
-          "
-        >
-
-          <div
-            className="
-              flex
-              flex-col
-              gap-7
-              sm:flex-row
-              sm:items-end
-              sm:justify-between
-            "
-          >
-
-            {/* name */}
-
-            <div className="group">
-
-              <h2
-                className={`
-                  text-[clamp(2.8rem,6vw,5rem)]
-                  font-semibold
-                  leading-[0.8]
-                  tracking-[-0.075em]
-                  text-white
-                  transition-transform
-                  duration-700
-                  ${EASE}
-                  group-hover:translate-x-[3px]
-                `}
-              >
-                HARSHA
-                <span className="text-[#555]">
-                  .
-                </span>
-              </h2>
-
-
-              <div
-                className="
-                  mt-4
-                  flex
-                  items-center
-                  gap-3
-                "
-              >
-
-                <span
-                  className={`
-                    h-px
-                    w-8
-                    bg-[#333]
-                    transition-all
-                    duration-700
-                    ${EASE}
-                    group-hover:w-14
-                    group-hover:bg-[#666]
-                  `}
-                />
-
-                <span
-                  className="
-                    text-[8px]
-                    font-medium
-                    uppercase
-                    tracking-[0.18em]
-                    text-[#505050]
-                    transition-colors
-                    duration-500
-                    group-hover:text-[#777]
-                  "
-                >
-                  Live Sound & FOH Engineer
-                </span>
-
-              </div>
-
-            </div>
-
-
-            {/* closing line */}
+            {/* INTRODUCTION NOTE */}
 
             <div
               className="
-                sm:text-right
+                max-w-[310px]
+                border-l border-white/10
+                pl-5 lg:mb-1
               "
             >
 
               <span
                 className="
-                  block
-                  text-[8px]
-                  uppercase
-                  tracking-[0.18em]
-                  text-[#3F3F3F]
+                  block text-[9px]
+                  font-medium uppercase
+                  tracking-[0.17em]
+                  text-white/25
                 "
               >
-                Bengaluru, India
+                Live Sound / FOH
               </span>
 
-              <span
+              <p
                 className="
-                  mt-2
-                  block
-                  text-[clamp(1rem,2vw,1.3rem)]
-                  font-medium
-                  tracking-[-0.025em]
-                  text-[#555]
+                  mt-4 text-[11px]
+                  leading-[1.9]
+                  text-white/40
                 "
               >
-                See you at the show ツ
-              </span>
+                Working with event organisers, production teams,
+                artists and venues on live sound requirements.
+              </p>
 
             </div>
 
           </div>
 
-
-          {/* final rule */}
+          {/* METADATA */}
 
           <div
             className="
-              mt-8
-              h-px
-              w-full
-              bg-[#191919]
+              mt-10 flex flex-wrap
+              items-center justify-between
+              gap-3 border-t border-white/10
+              pt-4
             "
-          />
+          >
+
+            <span
+              className="
+                text-[8px] uppercase
+                tracking-[0.16em]
+                text-white/25
+              "
+            >
+              BOOKINGS / COLLABORATIONS / ENQUIRIES
+            </span>
+
+            <span
+              className="
+                text-[8px] uppercase
+                tracking-[0.16em]
+                text-white/25
+              "
+            >
+              BENGALURU, INDIA
+            </span>
+
+          </div>
+
+        </section>
+
+        {/* =====================================================
+            02. PRIMARY CONTACT
+        ===================================================== */}
+
+        <section
+          className="
+            border-t border-white/10
+            pt-5 reveal-up
+          "
+        >
+
+          {/* SECTION HEADER */}
+
+          <div className="flex items-center gap-3">
+
+            <span className="label-meta text-white/40">
+              Get in Touch
+            </span>
+
+            <span className="h-px flex-1 bg-white/10" />
+
+            <span
+              className="
+                text-[8px] uppercase
+                tracking-[0.15em]
+                text-white/20
+              "
+            >
+              PREFERRED CHANNEL
+            </span>
+
+          </div>
+
+          {/* WHATSAPP FEATURE */}
+
+          <a
+            href={WHATSAPP_LINK}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="CHAT"
+            aria-label="Start a conversation with Harsha on WhatsApp"
+            className="
+              group/whatsapp relative mt-6 block
+              overflow-hidden
+              border border-white/10
+              bg-white/[0.015]
+              p-6 sm:p-8
+              motion-safe:transition-all
+              motion-safe:duration-700
+              hover:border-[#B99B73]/50
+              hover:bg-[#B99B73]/[0.025]
+              focus-visible:outline
+              focus-visible:outline-2
+              focus-visible:outline-offset-4
+              focus-visible:outline-[#B99B73]
+            "
+          >
+
+            {/* TOP ACCENT */}
+
+            <span
+              className="
+                absolute left-0 top-0
+                h-px w-0 bg-[#B99B73]
+                motion-safe:transition-all
+                motion-safe:duration-700
+                group-hover/whatsapp:w-28
+              "
+            />
+
+            <div
+              className="
+                relative z-10
+                flex flex-col gap-7
+                sm:flex-row
+                sm:items-end
+                sm:justify-between
+              "
+            >
+
+              {/* LEFT CONTENT */}
+
+              <div className="min-w-0">
+
+                <span
+                  className="
+                    text-[9px] font-medium
+                    uppercase tracking-[0.18em]
+                    text-[#B99B73]
+                  "
+                >
+                  01 / WhatsApp
+                </span>
+
+                <h2
+                  className="
+                    mt-4
+                    text-[clamp(1.3rem,2.5vw,2rem)]
+                    font-light
+                    leading-[1.2]
+                    tracking-[-0.04em]
+                    text-white/80
+                    motion-safe:transition-colors
+                    motion-safe:duration-500
+                    group-hover/whatsapp:text-white
+                  "
+                >
+                  Start a Conversation
+                </h2>
+
+                <p
+                  className="
+                    mt-3 text-[11px]
+                    tracking-[0.01em]
+                    text-white/35
+                  "
+                >
+                  {PHONE_DISPLAY}
+                </p>
+
+              </div>
+
+              {/* RIGHT ACTION */}
+
+              <div
+                className="
+                  flex shrink-0
+                  items-center justify-between
+                  gap-5 sm:justify-end
+                "
+              >
+
+                <span
+                  className="
+                    text-[8px] font-medium
+                    uppercase tracking-[0.16em]
+                    text-white/35
+                    motion-safe:transition-colors
+                    motion-safe:duration-500
+                    group-hover/whatsapp:text-white/75
+                  "
+                >
+                  Open WhatsApp
+                </span>
+
+                <span
+                  className="
+                    flex h-11 w-11
+                    items-center justify-center
+                    border border-white/15
+                    text-white/60
+                    motion-safe:transition-all
+                    motion-safe:duration-500
+                    group-hover/whatsapp:border-[#B99B73]
+                    group-hover/whatsapp:bg-[#B99B73]
+                    group-hover/whatsapp:text-[#090909]
+                  "
+                >
+                  <ArrowUpRight
+                    size={17}
+                    strokeWidth={1.35}
+                    className="
+                      motion-safe:transition-transform
+                      motion-safe:duration-500
+                      group-hover/whatsapp:-translate-y-[2px]
+                      group-hover/whatsapp:translate-x-[2px]
+                    "
+                  />
+                </span>
+
+              </div>
+
+            </div>
+
+            {/* BOTTOM ACCENT */}
+
+            <span
+              className="
+                absolute bottom-0 right-0
+                h-px w-0 bg-[#B99B73]
+                motion-safe:transition-all
+                motion-safe:duration-700
+                group-hover/whatsapp:w-28
+              "
+            />
+
+          </a>
+
+        </section>
+
+        {/* =====================================================
+            03. SECONDARY CONTACT
+        ===================================================== */}
+
+        <section
+          className="
+            mt-[clamp(3rem,5vw,4rem)]
+            reveal-up
+          "
+        >
+
+          <div className="flex items-center gap-3">
+
+            <span className="label-meta text-white/40">
+              Other Channels
+            </span>
+
+            <span className="h-px flex-1 bg-white/10" />
+
+          </div>
+
+          <div
+            className="
+              mt-5 grid grid-cols-1
+              gap-x-10 sm:grid-cols-2
+            "
+          >
+
+            {/* EMAIL */}
+
+            <a
+              href={EMAIL_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="WRITE"
+              aria-label={`Email Harsha at ${EMAIL}`}
+              className="
+                group/email flex items-center
+                justify-between gap-4
+                border-t border-white/10
+                py-5
+                motion-safe:transition-colors
+                motion-safe:duration-500
+                hover:border-[#B99B73]/50
+              "
+            >
+
+              <div className="min-w-0">
+
+                <span
+                  className="
+                    block text-[8px]
+                    font-medium uppercase
+                    tracking-[0.17em]
+                    text-white/25
+                    motion-safe:transition-colors
+                    motion-safe:duration-500
+                    group-hover/email:text-[#B99B73]
+                  "
+                >
+                  Email
+                </span>
+
+                <span
+                  className="
+                    mt-2 block truncate
+                    text-[12px] font-medium
+                    tracking-[-0.02em]
+                    text-white/60
+                    motion-safe:transition-colors
+                    motion-safe:duration-500
+                    group-hover/email:text-white
+                  "
+                >
+                  {EMAIL}
+                </span>
+
+              </div>
+
+              <Mail
+                size={15}
+                strokeWidth={1.4}
+                className="
+                  shrink-0 text-white/30
+                  motion-safe:transition-all
+                  motion-safe:duration-500
+                  group-hover/email:-translate-y-0.5
+                  group-hover/email:translate-x-0.5
+                  group-hover/email:text-[#B99B73]
+                "
+              />
+
+            </a>
+
+            {/* INSTAGRAM */}
+
+            <a
+              href={INSTAGRAM_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cursor="VISIT"
+              aria-label={`Visit Harsha on Instagram ${INSTAGRAM_HANDLE}`}
+              className="
+                group/instagram flex items-center
+                justify-between gap-4
+                border-t border-white/10
+                py-5
+                motion-safe:transition-colors
+                motion-safe:duration-500
+                hover:border-[#B99B73]/50
+              "
+            >
+
+              <div className="min-w-0">
+
+                <span
+                  className="
+                    block text-[8px]
+                    font-medium uppercase
+                    tracking-[0.17em]
+                    text-white/25
+                    motion-safe:transition-colors
+                    motion-safe:duration-500
+                    group-hover/instagram:text-[#B99B73]
+                  "
+                >
+                  Instagram
+                </span>
+
+                <span
+                  className="
+                    mt-2 block
+                    text-[12px] font-medium
+                    tracking-[-0.02em]
+                    text-white/60
+                    motion-safe:transition-colors
+                    motion-safe:duration-500
+                    group-hover/instagram:text-white
+                  "
+                >
+                  {INSTAGRAM_HANDLE}
+                </span>
+
+              </div>
+
+              <Instagram
+                size={15}
+                strokeWidth={1.4}
+                className="
+                  shrink-0 text-white/30
+                  motion-safe:transition-all
+                  motion-safe:duration-500
+                  group-hover/instagram:-translate-y-0.5
+                  group-hover/instagram:translate-x-0.5
+                  group-hover/instagram:text-[#B99B73]
+                "
+              />
+
+            </a>
+
+          </div>
+
+        </section>
+
+        {/* =====================================================
+            04. CLOSING SIGNATURE
+        ===================================================== */}
+
+        <section
+          className="
+            mt-[clamp(4rem,7vw,6rem)]
+            border-t border-white/10
+            pt-7 md:pt-9
+            reveal-up
+          "
+        >
+
+          <div
+            className="
+              grid gap-8
+              md:grid-cols-[1fr_auto]
+              md:items-end
+            "
+          >
+
+            {/* LOCATION & ROLE */}
+
+            <div className="flex flex-col gap-3">
+
+              <div className="flex items-center gap-3">
+
+                <MapPin
+                  size={13}
+                  strokeWidth={1.4}
+                  className="text-[#B99B73]/70"
+                />
+
+                <span
+                  className="
+                    text-[9px] uppercase
+                    tracking-[0.16em]
+                    text-white/45
+                  "
+                >
+                  Bengaluru, India
+                </span>
+
+              </div>
+
+              <span
+                className="
+                  pl-[25px]
+                  text-[9px] uppercase
+                  tracking-[0.16em]
+                  text-white/25
+                "
+              >
+                Harsha / Live Sound Engineer
+              </span>
+
+            </div>
+
+            {/* PERSONAL SIGN-OFF */}
+
+            <div className="md:text-right">
+
+              <p
+                className="
+                  text-[clamp(1.35rem,2.5vw,2rem)]
+                  font-light
+                  leading-tight
+                  tracking-[-0.045em]
+                  text-white/75
+                  motion-safe:transition-colors
+                  motion-safe:duration-500
+                  hover:text-[#B99B73]
+                "
+              >
+                See you at the show
+                <span className="ml-1 text-[#B99B73]">ツ</span>
+              </p>
+
+            </div>
+
+          </div>
 
         </section>
 

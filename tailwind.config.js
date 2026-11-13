@@ -16,19 +16,24 @@ export default {
       },
       colors: {
         bg: {
-          primary: '#0D0D0D',
+          primary: '#0A0A0A',
           surface: '#111111',
-          surface2: '#141414',
+          surface2: '#161616',
         },
         border: {
-          subtle: '#1F1F1F',
+          subtle: '#1E1E1E',
           muted: '#2A2A2A',
         },
         text: {
-          primary: '#FFFFFF',
-          secondary: '#A8A8A8',
+          primary: '#F2F0EA',
+          secondary: '#A6A39D',
           muted: '#6B6B6B',
           faint: '#4A4A4A',
+        },
+        shaya: {
+          gold: '#C9A96E',
+          'gold-dim': '#A8853F',
+          'gold-bright': '#E0C17A',
         },
       },
       spacing: {
@@ -37,6 +42,7 @@ export default {
       animation: {
         'fade-up': 'fadeUp 0.6s cubic-bezier(0.16,1,0.3,1) both',
         'fade-in': 'fadeIn 0.5s ease both',
+        'shaya-pulse': 'shayaPulse 3s ease-in-out infinite',
       },
       keyframes: {
         fadeUp: {
@@ -46,6 +52,10 @@ export default {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
+        },
+        shayaPulse: {
+          '0%, 100%': { opacity: '0.6' },
+          '50%': { opacity: '1' },
         },
       },
     },

@@ -1,53 +1,65 @@
+
 import PortfolioPage from '@/components/PortfolioPage';
 
-const capabilityGroups = [
+const disciplines = [
   {
     number: '01',
-    title: 'Audio / FOH',
-    items: ['Mixing', 'EQ', 'Dynamics', 'FX', 'Gain Structure'],
+    code: 'MIXING',
+    title: 'Audio & Mixing',
+    subtitle: 'FOH / MONITOR OPERATIONS',
+    groups: [
+      {
+        label: 'FRONT OF HOUSE',
+        items: ['Mixing', 'EQ', 'Dynamics', 'FX', 'Gain Structure'],
+      },
+      {
+        label: 'MONITORING',
+        items: ['Monitor Sends', 'Mix Buses', 'Feedback Management'],
+      },
+    ],
   },
   {
     number: '02',
-    title: 'Monitors',
-    items: ['Monitor Sends', 'Mix Buses', 'Feedback Management'],
+    code: 'SYSTEMS',
+    title: 'Stage & Systems',
+    subtitle: 'INPUTS / SIGNAL FLOW / PA',
+    groups: [
+      {
+        label: 'STAGE OPERATIONS',
+        items: ['Patching', 'Line Check', 'Routing', 'Playback'],
+      },
+      {
+        label: 'AUDIO SYSTEMS',
+        items: ['PA', 'Signal Flow', 'System Routing', 'Stage Monitoring'],
+      },
+    ],
   },
   {
     number: '03',
-    title: 'Stage',
-    items: ['Patching', 'Line Check', 'Routing', 'Playback'],
-  },
-  {
-    number: '04',
-    title: 'Systems',
-    items: ['PA', 'Signal Flow', 'System Routing', 'Stage Monitoring'],
-  },
-  {
-    number: '05',
-    title: 'Networked Audio',
-    items: [
-      'Dante',
-      'Dante Controller',
-      'Digital Audio Transport',
-      'Networked Audio Concepts',
+    code: 'PRODUCTION',
+    title: 'Network & Production',
+    subtitle: 'DIGITAL AUDIO / LIVE OPERATIONS',
+    groups: [
+      {
+        label: 'NETWORKED AUDIO',
+        items: [
+          'Dante',
+          'Dante Controller',
+          'Digital Audio Transport',
+          'Networked Audio Concepts',
+        ],
+      },
+      {
+        label: 'LIVE OPERATIONS',
+        items: [
+          'Soundcheck',
+          'Changeovers',
+          'Troubleshooting',
+          'Stage Coordination',
+        ],
+      },
     ],
   },
-  {
-    number: '06',
-    title: 'Production',
-    items: [
-      'Soundcheck',
-      'Changeovers',
-      'Troubleshooting',
-      'Stage Coordination',
-    ],
-  },
-];
-
-const disciplines = [
-  ['FOH', 'Front of House'],
-  ['MON', 'Monitor Mixing'],
-  ['SYS', 'System Routing'],
-  ['NET', 'Networked Audio'],
 ];
 
 export default function Page04Capabilities() {
@@ -57,397 +69,307 @@ export default function Page04Capabilities() {
       pageNumber=""
       sectionLabel="04 / Capabilities"
     >
-      <div>
+      <div className="flex flex-col">
 
-        {/* =====================================================
-            INTRO
-        ===================================================== */}
+        {/* INTRODUCTION */}
 
-        <div
-          className="
-            max-w-[720px]
-            pb-[clamp(2.5rem,4vw,3.5rem)]
-          "
-        >
-          <div className="group">
+        <section className="
+          group/intro grid grid-cols-1 gap-8
+          pb-12 md:grid-cols-[1fr_0.72fr]
+          md:items-end md:gap-14 md:pb-16
+        ">
 
-            {/* Section Label */}
-            <div className="flex items-center gap-3">
-              <span
-                className="
-                  label-meta-bright
-                  transition-colors
-                  duration-500
-                  group-hover:text-white
-                "
-              >
-                TECHNICAL SCOPE
-              </span>
+          <div className="reveal-up">
 
-              <span
-                className="
-                  h-px
-                  w-7
-                  bg-[#333]
-                  transition-all
-                  duration-700
-                  ease-[cubic-bezier(0.22,1,0.36,1)]
-                  group-hover:w-12
-                  group-hover:bg-[#666]
-                "
-              />
-            </div>
+            <p className="
+              mb-6 text-[10px] font-medium
+              uppercase tracking-[0.24em]
+              text-[#B99B73]
+            ">
+              Technical scope
+            </p>
 
-            {/* Heading */}
-            <h2
-              className="
-                mt-3
-                text-[clamp(2.2rem,4.6vw,3.8rem)]
-                font-semibold
-                leading-[0.92]
-                tracking-[-0.055em]
-                text-white
-              "
-            >
-              <span className="text-white">
-                Technical
-              </span>{' '}
-
-              <span
-                className="
-                  text-[#777]
-                  transition-colors
-                  duration-500
-                  group-hover:text-[#A5A5A5]
-                "
-              >
-                Capabilities.
+            <h2 className="
+              m-0 text-[clamp(2.8rem,6.5vw,5.8rem)]
+              font-semibold uppercase
+              leading-[0.86] tracking-[-0.078em]
+              text-white
+            ">
+              WHAT I
+              <br />
+              <span className="
+                text-white/[0.28]
+                motion-safe:transition-colors
+                motion-safe:duration-500
+                group-hover/intro:text-white/[0.48]
+              ">
+                WORK WITH.
               </span>
             </h2>
 
-            {/* Description */}
-            <p
-              className="
-                mt-3.5
-                max-w-[50ch]
-                text-[0.84rem]
-                leading-[1.6]
-                text-[#747474]
-                transition-colors
-                duration-500
-                group-hover:text-[#888]
-              "
-            >
-              The technical disciplines I work across when preparing,
-              operating and troubleshooting a live sound production.
+            <div className="
+              mt-8 h-px w-12 bg-[#B99B73]/65
+              motion-safe:transition-all
+              motion-safe:duration-500
+              group-hover/intro:w-24
+            " />
+
+          </div>
+
+          <div className="reveal-up md:pb-1">
+
+            <p className="
+              max-w-[44ch] text-[0.88rem]
+              leading-[1.9] text-white/55
+            ">
+              The technical disciplines behind a live sound production.
+              From individual sources and stage routing to networked audio
+              and the final mix.
             </p>
 
+            <div className="mt-7 flex items-center gap-3">
+
+              <span className="
+                h-px w-7 bg-[#B99B73]/65
+                motion-safe:transition-all
+                motion-safe:duration-500
+                group-hover/intro:w-12
+              " />
+
+              <span className="
+                text-[10px] uppercase
+                tracking-[0.18em] text-white/35
+              ">
+                Audio · Systems · Production
+              </span>
+
+            </div>
           </div>
-        </div>
+        </section>
 
 
-        {/* =====================================================
-            TECHNICAL FIELD
-        ===================================================== */}
+        {/* TECHNICAL DISCIPLINES */}
 
-        <div className="border-t border-[#1F1F1F]">
+        <section className="border-t border-white/[0.13]">
 
-          <div className="grid grid-cols-1 md:grid-cols-2">
-
-            {capabilityGroups.map((group, index) => (
-              <article
-                key={group.number}
-                className={`
-                  group
-                  relative
-                  py-5
-                  md:py-6
-                  transition-colors
-                  duration-500
-                  ${index >= 2
-                    ? 'border-t border-[#1F1F1F]'
-                    : ''
-                  }
-                  ${index % 2 === 1
-                    ? 'md:pl-9'
-                    : 'md:pr-9'
-                  }
-                `}
-              >
-
-                {/* Desktop Column Divider */}
-                {index % 2 === 1 && (
-                  <span
-                    className="
-                      absolute
-                      left-0
-                      top-6
-                      bottom-6
-                      hidden
-                      w-px
-                      bg-[#1F1F1F]
-                      transition-colors
-                      duration-500
-                      md:block
-                      group-hover:bg-[#303030]
-                    "
-                  />
-                )}
-
-                {/* Content */}
-                <div className="flex items-start gap-4">
-
-                  {/* Number */}
-                  <span
-                    className="
-                      w-5
-                      flex-shrink-0
-                      pt-[2px]
-                      text-[9px]
-                      font-medium
-                      tracking-[0.15em]
-                      text-[#484848]
-                      transition-colors
-                      duration-500
-                      group-hover:text-[#888]
-                    "
-                  >
-                    {group.number}
-                  </span>
-
-
-                  {/* Main Content */}
-                  <div className="min-w-0 flex-1">
-
-                    {/* Title */}
-                    <div className="flex items-center gap-3">
-
-                      <h3
-                        className="
-                          m-0
-                          text-[12px]
-                          font-semibold
-                          uppercase
-                          tracking-[0.12em]
-                          text-[#B8B8B8]
-                          transition-colors
-                          duration-500
-                          group-hover:text-white
-                        "
-                      >
-                        {group.title}
-                      </h3>
-
-                      <span
-                        className="
-                          h-px
-                          w-5
-                          bg-[#292929]
-                          transition-all
-                          duration-700
-                          ease-[cubic-bezier(0.22,1,0.36,1)]
-                          group-hover:w-9
-                          group-hover:bg-[#555]
-                        "
-                      />
-
-                    </div>
-
-
-                    {/* Capability Items */}
-                    <div
-                      className="
-                        mt-2.5
-                        flex
-                        flex-wrap
-                        items-center
-                        gap-x-3
-                        gap-y-1
-                      "
-                    >
-                      {group.items.map((item, itemIndex) => (
-                        <span
-                          key={item}
-                          className="
-                            inline-flex
-                            items-center
-                            text-[11.5px]
-                            leading-[1.5]
-                            text-[#707070]
-                            transition-colors
-                            duration-500
-                            group-hover:text-[#929292]
-                          "
-                        >
-                          {item}
-
-                          {itemIndex <
-                            group.items.length - 1 && (
-                              <span
-                                className="
-                                ml-3
-                                text-[#383838]
-                                transition-colors
-                                duration-500
-                                group-hover:text-[#4D4D4D]
-                              "
-                              >
-                                ·
-                              </span>
-                            )}
-                        </span>
-                      ))}
-                    </div>
-
-                  </div>
-
-                </div>
-
-
-                {/* Subtle Hover Line */}
-                <span
-                  className="
-                    absolute
-                    bottom-0
-                    left-0
-                    h-px
-                    w-0
-                    bg-[#666]
-                    transition-all
-                    duration-700
-                    ease-[cubic-bezier(0.22,1,0.36,1)]
-                    group-hover:w-10
-                  "
-                />
-
-              </article>
-            ))}
-
-          </div>
-
-        </div>
-
-
-        {/* =====================================================
-            PRIMARY DISCIPLINES
-        ===================================================== */}
-
-        <div
-          className="
-            pt-[clamp(2.5rem,4vw,3.5rem)]
-          "
-        >
-
-          {/* Section Heading */}
-          <div className="mb-4 flex items-center gap-3">
-
-            <span
+          {disciplines.map((discipline) => (
+            <article
+              key={discipline.number}
               className="
-                label-meta
-                transition-colors
-                duration-500
-                hover:text-[#999]
+                group/discipline relative grid
+                grid-cols-1 gap-7 overflow-hidden
+                border-b border-white/[0.12]
+                px-2 py-9
+                transition-colors duration-500
+                hover:bg-white/[0.018]
+                active:bg-white/[0.035]
+                md:grid-cols-[0.9fr_1.1fr]
+                md:gap-12 md:py-11
               "
             >
-              PRIMARY DISCIPLINES
-            </span>
 
-            <span className="h-px flex-1 bg-[#1F1F1F]" />
+              {/* TOP ACCENT */}
 
-          </div>
+              <span className="
+                pointer-events-none absolute left-0 top-0
+                h-px w-0 bg-[#B99B73]/75
+                motion-safe:transition-all
+                motion-safe:duration-700
+                group-hover/discipline:w-full
+              " />
 
 
-          {/* Discipline Grid */}
-          <div
-            className="
-              grid
-              grid-cols-2
-              border-t
-              border-[#1F1F1F]
-              sm:grid-cols-4
-            "
-          >
+              {/* DISCIPLINE IDENTITY */}
 
-            {disciplines.map(([label, value], index) => (
-              <div
-                key={label}
-                className={`
-                  group
-                  relative
-                  py-3.5
-                  transition-transform
-                  duration-500
-                  ease-[cubic-bezier(0.22,1,0.36,1)]
-                  hover:-translate-y-[2px]
-                  ${index > 0
-                    ? 'border-l border-[#1F1F1F]'
-                    : ''
-                  }
-                  ${index % 2 === 0
-                    ? 'pr-4'
-                    : 'pl-4'
-                  }
-                  sm:px-4
-                `}
-              >
+              <div className="flex gap-5">
 
-                {/* Discipline Code */}
-                <span
-                  className="
-                    block
-                    text-[9px]
-                    font-semibold
-                    tracking-[0.17em]
-                    text-[#505050]
-                    transition-colors
-                    duration-500
-                    group-hover:text-[#999]
-                  "
-                >
-                  {label}
+                <span className="
+                  pt-1 text-[11px] tabular-nums
+                  tracking-[0.12em] text-[#B99B73]/70
+                  motion-safe:transition-all
+                  motion-safe:duration-500
+                  group-hover/discipline:translate-x-1
+                  group-hover/discipline:text-[#B99B73]
+                ">
+                  {discipline.number}
                 </span>
 
+                <div className="min-w-0">
 
-                {/* Discipline Name */}
-                <span
-                  className="
-                    mt-1
-                    block
-                    text-[11.5px]
-                    font-medium
-                    leading-[1.4]
-                    text-[#999]
-                    transition-colors
-                    duration-500
-                    group-hover:text-white
-                  "
-                >
-                  {value}
-                </span>
+                  <p className="
+                    mb-3 text-[9px] font-medium
+                    uppercase tracking-[0.2em]
+                    text-white/30
+                    motion-safe:transition-colors
+                    motion-safe:duration-300
+                    group-hover/discipline:text-[#B99B73]/75
+                  ">
+                    {discipline.code}
+                  </p>
+
+                  <h3 className="
+                    m-0 text-[clamp(1.4rem,2.5vw,2rem)]
+                    font-medium leading-[1.15]
+                    tracking-[-0.055em] text-white/90
+                    motion-safe:transition-all
+                    motion-safe:duration-500
+                    group-hover/discipline:translate-x-1
+                    group-hover/discipline:text-white
+                  ">
+                    {discipline.title}
+                  </h3>
+
+                  <p className="
+                    mt-3 text-[9px] uppercase
+                    tracking-[0.15em] text-white/35
+                  ">
+                    {discipline.subtitle}
+                  </p>
+
+                  <div className="
+                    mt-5 h-px w-7 bg-[#B99B73]/40
+                    motion-safe:transition-all
+                    motion-safe:duration-500
+                    group-hover/discipline:w-14
+                  " />
+
+                </div>
+              </div>
 
 
-                {/* Hover Line */}
-                <span
-                  className="
-                    absolute
-                    bottom-0
-                    left-0
-                    h-px
-                    w-0
-                    bg-[#666]
-                    transition-all
-                    duration-700
-                    ease-[cubic-bezier(0.22,1,0.36,1)]
-                    group-hover:w-8
-                  "
-                />
+              {/* TECHNICAL AREAS */}
+
+              <div className="
+                grid grid-cols-1 gap-7
+                sm:grid-cols-2 sm:gap-8
+              ">
+
+                {discipline.groups.map((group) => (
+                  <div key={group.label} className="min-w-0">
+
+                    <p className="
+                      mb-4 text-[9px] font-semibold
+                      uppercase tracking-[0.17em]
+                      text-[#B99B73]/75
+                    ">
+                      {group.label}
+                    </p>
+
+                    <ul className="
+                      m-0 flex list-none
+                      flex-col gap-3 p-0
+                    ">
+
+                      {group.items.map((item) => (
+                        <li
+                          key={item}
+                          className="
+                            group/item flex items-center gap-3
+                            text-[12px] leading-[1.5]
+                            text-white/55
+                            motion-safe:transition-all
+                            motion-safe:duration-300
+                            hover:translate-x-1
+                            hover:text-white/90
+                            active:translate-x-1
+                            active:text-[#B99B73]
+                          "
+                        >
+
+                          <span className="
+                            h-px w-3 shrink-0
+                            bg-white/25
+                            motion-safe:transition-all
+                            motion-safe:duration-300
+                            group-hover/item:w-5
+                            group-hover/item:bg-[#B99B73]/80
+                          " />
+
+                          <span className="
+                            motion-safe:transition-colors
+                            motion-safe:duration-300
+                            group-hover/item:text-white
+                          ">
+                            {item}
+                          </span>
+
+                        </li>
+                      ))}
+
+                    </ul>
+                  </div>
+                ))}
 
               </div>
-            ))}
+
+              {/* BOTTOM ACCENT */}
+
+              <span className="
+                pointer-events-none absolute bottom-0 right-0
+                h-px w-0 bg-[#B99B73]/40
+                motion-safe:transition-all
+                motion-safe:duration-700
+                group-hover/discipline:w-1/3
+              " />
+
+            </article>
+          ))}
+
+        </section>
+
+
+        {/* CLOSING STATEMENT */}
+
+        <section className="
+          group/closing mt-14 grid grid-cols-1
+          gap-5 border-t border-white/[0.12]
+          pt-8 md:mt-20
+          md:grid-cols-[1fr_auto]
+          md:items-end md:pt-10
+        ">
+
+          <div>
+
+            <p className="
+              mb-3 text-[10px] uppercase
+              tracking-[0.2em] text-[#B99B73]/80
+            ">
+              The approach
+            </p>
+
+            <p className="
+              m-0 max-w-[46ch]
+              text-[clamp(1.2rem,2.3vw,1.8rem)]
+              font-medium leading-[1.4]
+              tracking-[-0.045em] text-white/80
+              motion-safe:transition-colors
+              motion-safe:duration-500
+              group-hover/closing:text-white
+            ">
+              Understanding the signal chain is as important as shaping
+              the sound.
+            </p>
+
+            <div className="
+              mt-5 h-px w-8 bg-[#B99B73]/55
+              motion-safe:transition-all
+              motion-safe:duration-500
+              group-hover/closing:w-16
+            " />
 
           </div>
 
-        </div>
+          <span className="
+            text-[10px] uppercase
+            tracking-[0.18em] text-white/35
+            motion-safe:transition-colors
+            motion-safe:duration-300
+            group-hover/closing:text-[#B99B73]
+          ">
+            Live Sound Engineer
+          </span>
+
+        </section>
 
       </div>
     </PortfolioPage>

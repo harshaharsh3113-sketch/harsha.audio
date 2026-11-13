@@ -1,632 +1,694 @@
+
 import PortfolioPage from '@/components/PortfolioPage';
 import ImageFrame from '@/components/ImageFrame';
 import { ExternalLink, Play } from 'lucide-react';
 
+/* =========================================================
+   ARCHIVE DATA
+========================================================= */
+
 const archive = [
   {
     src: '/image_06.jpg',
-    alt: 'FOH console in operation during a live production',
-    caption: 'FOH Console',
-    type: 'FOH / CONTROL',
-    index: '01',
+    alt: 'Allen and Heath SQ-6 mixing console with outboard processing and stage equipment in an outdoor production setup',
+    caption: 'FOH Control & Processing',
+    type: 'FOH / SYSTEMS',
+    aspectRatio: '3 / 2',
   },
   {
     src: '/image_07.jpg',
-    alt: 'Harsha operating FOH at a live production',
-    caption: 'FOH Operation / Stage',
+    alt: 'Harsha operating a live sound mixing console at an outdoor production',
+    caption: 'Behind the Console',
     type: 'LIVE OPERATION',
-    index: '02',
+    aspectRatio: '4 / 3',
   },
   {
     src: '/image_08.jpg',
-    alt: 'Technical setup and soundcheck in progress',
-    caption: 'Soundcheck / Technical Setup',
-    type: 'PRE-PRODUCTION',
-    index: '03',
+    alt: 'Allen and Heath SQ-7 FOH console with SQ MixPad remote control in an indoor live event venue',
+    caption: 'FOH & Live Production',
+    type: 'LIVE EVENT',
+    aspectRatio: '4 / 3',
   },
   {
     src: '/image_09.jpg',
-    alt: 'Live performance in an open-air venue',
-    caption: 'Live Performance / Open-Air',
-    type: 'LIVE PRODUCTION',
-    index: '04',
+    alt: 'Large-scale outdoor concert production showing the audio FOH riser, lighting control booth and concert stage',
+    caption: 'Concert Production Environment',
+    type: 'LARGE-SCALE PRODUCTION',
+    aspectRatio: '3 / 2',
   },
 ];
 
 const DRIVE_LINK =
   'https://drive.google.com/drive/folders/1ww2Dhl_A5JQt4eAjTyAYZhKrFMxmfBru';
 
-export default function Page08VisualArchive() {
+/* =========================================================
+   ARCHIVE IMAGE
+========================================================= */
+
+function ArchiveImage({
+  item,
+}: {
+  item: (typeof archive)[number];
+}) {
   return (
-    <PortfolioPage
-      pageId="page-archive"
-      pageNumber=""
-      sectionLabel="08 / Visual Archive"
-    >
-      <div>
+    <figure className="group/archive relative min-w-0">
 
-        {/* =====================================================
-            INTRO
-        ===================================================== */}
+      {/* IMAGE */}
 
-        <section className="pb-[clamp(2.75rem,5vw,4rem)]">
+      <div className="relative overflow-hidden bg-[#111111]">
 
-          <div className="group max-w-[760px]">
+        <div className="overflow-hidden">
+          <ImageFrame
+            src={item.src}
+            alt={item.alt}
+            className="
+              w-full
+              motion-safe:transition-transform
+              motion-safe:duration-1000
+              motion-safe:ease-[cubic-bezier(0.22,1,0.36,1)]
+              group-hover/archive:scale-[1.025]
+              group-active/archive:scale-[1.01]
+            "
+            style={{
+              aspectRatio: item.aspectRatio,
+            }}
+          />
+        </div>
 
-            <div className="flex items-center gap-3">
+        {/* TONAL OVERLAY */}
 
-              <span
-                className="
-                  label-meta-bright
-                  transition-colors
-                  duration-500
-                  group-hover:text-white
-                "
-              >
-                PRODUCTION ARCHIVE
-              </span>
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute inset-0
+            bg-black/[0.06]
+            motion-safe:transition-colors
+            motion-safe:duration-700
+            group-hover/archive:bg-transparent
+          "
+        />
 
-              <span
-                className="
-                  h-px
-                  w-8
-                  bg-[#333]
-                  transition-all
-                  duration-700
-                  ease-[cubic-bezier(0.22,1,0.36,1)]
-                  group-hover:w-14
-                  group-hover:bg-[#666]
-                "
-              />
+        {/* EDITORIAL FRAME */}
 
-            </div>
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute inset-0
+            border border-transparent
+            motion-safe:transition-all
+            motion-safe:duration-700
+            group-hover/archive:inset-[8px]
+            group-hover/archive:border-white/20
+          "
+        />
 
+        {/* TOP SIGNAL */}
 
-            <h2
-              className="
-                mt-3
-                text-[clamp(2.2rem,4.6vw,3.8rem)]
-                font-semibold
-                leading-[0.92]
-                tracking-[-0.055em]
-              "
-            >
-              <span className="text-white">
-                Production
-              </span>{' '}
+        <span
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute left-0 top-0
+            h-px w-0
+            bg-[#B99B73]
+            motion-safe:transition-all
+            motion-safe:duration-700
+            group-hover/archive:w-20
+          "
+        />
 
-              <span
-                className="
-                  text-[#777]
-                  transition-colors
-                  duration-500
-                  group-hover:text-[#A5A5A5]
-                "
-              >
-                In Focus.
-              </span>
-            </h2>
+        {/* BOTTOM SIGNAL */}
 
+        <span
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute bottom-0 right-0
+            h-px w-0
+            bg-[#B99B73]
+            motion-safe:transition-all
+            motion-safe:duration-700
+            group-hover/archive:w-20
+          "
+        />
 
-            <p
-              className="
-                mt-3.5
-                max-w-[53ch]
-                text-[0.84rem]
-                leading-[1.65]
-                text-[#747474]
-                transition-colors
-                duration-500
-                group-hover:text-[#888]
-              "
-            >
-              A visual record of the stages, systems and live environments
-              behind the work.
-            </p>
+      </div>
 
+      {/* CAPTION */}
+
+      <figcaption className="mt-4">
+
+        <div
+          className="
+            flex flex-wrap
+            items-center justify-between
+            gap-x-4 gap-y-2
+          "
+        >
+
+          <div
+            className="
+              flex min-w-0 items-center gap-3
+              motion-safe:transition-transform
+              motion-safe:duration-700
+              group-hover/archive:translate-x-[3px]
+            "
+          >
 
             <span
               className="
-                mt-4
-                block
-                h-px
-                w-0
-                bg-[#444]
-                transition-all
-                duration-700
-                ease-[cubic-bezier(0.22,1,0.36,1)]
-                group-hover:w-16
+                h-px w-5 shrink-0
+                bg-[#B99B73]/50
+                motion-safe:transition-all
+                motion-safe:duration-700
+                group-hover/archive:w-8
+                group-hover/archive:bg-[#B99B73]
+              "
+            />
+
+            <span
+              className="
+                text-[11.5px] font-medium
+                tracking-[-0.01em]
+                text-white/65
+                motion-safe:transition-colors
+                motion-safe:duration-500
+                group-hover/archive:text-white
+              "
+            >
+              {item.caption}
+            </span>
+
+          </div>
+
+          <span
+            className="
+              text-[8px] font-medium
+              uppercase tracking-[0.15em]
+              text-white/25
+              motion-safe:transition-colors
+              motion-safe:duration-500
+              group-hover/archive:text-white/45
+            "
+          >
+            {item.type}
+          </span>
+
+        </div>
+
+        {/* CAPTION SIGNAL */}
+
+        <span
+          className="
+            mt-3 block h-px w-0
+            bg-white/30
+            motion-safe:transition-all
+            motion-safe:duration-700
+            group-hover/archive:w-12
+          "
+        />
+
+      </figcaption>
+
+    </figure>
+  );
+}
+
+/* =========================================================
+   VIDEO ARCHIVE
+========================================================= */
+
+function VideoArchive() {
+  return (
+    <section
+      className="
+        group/video
+        mt-[clamp(3.5rem,6vw,5rem)]
+        reveal-up
+      "
+    >
+
+      {/* SECTION LABEL */}
+
+      <div className="flex items-center gap-3">
+
+        <span className="label-meta text-[#B99B73]">
+          Video Archive
+        </span>
+
+        <span className="h-px flex-1 bg-white/10" />
+
+        <span
+          className="
+            hidden sm:block
+            text-[9px] uppercase
+            tracking-[0.15em]
+            text-white/25
+          "
+        >
+          LIVE PRODUCTION FOOTAGE
+        </span>
+
+      </div>
+
+      {/* ARCHIVE LINK */}
+
+      <a
+        href={DRIVE_LINK}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open Harsha's live production video archive on Google Drive"
+        className="
+          group/link relative block
+          mt-5 overflow-hidden
+          border-t border-b border-white/10
+          py-6
+          motion-safe:transition-colors
+          motion-safe:duration-500
+          hover:bg-white/[0.015]
+        "
+      >
+
+        {/* ACTIVE RAIL */}
+
+        <span
+          aria-hidden="true"
+          className="
+            absolute bottom-0 left-0 top-0
+            w-px bg-[#B99B73]
+            opacity-0
+            motion-safe:transition-opacity
+            motion-safe:duration-500
+            group-hover/link:opacity-100
+          "
+        />
+
+        <div
+          className="
+            relative z-10
+            flex flex-col gap-5
+            sm:flex-row
+            sm:items-center
+            sm:justify-between
+          "
+        >
+
+          {/* LEFT CONTENT */}
+
+          <div className="flex items-start gap-4">
+
+            <div
+              className="
+                flex h-10 w-10 shrink-0
+                items-center justify-center
+                border border-white/15
+                bg-white/[0.02]
+                text-white/50
+                motion-safe:transition-all
+                motion-safe:duration-500
+                group-hover/link:border-[#B99B73]/60
+                group-hover/link:bg-[#B99B73]/[0.06]
+                group-hover/link:text-[#B99B73]
+              "
+            >
+              <Play
+                size={12}
+                strokeWidth={1.7}
+                className="
+                  translate-x-[1px]
+                  motion-safe:transition-transform
+                  motion-safe:duration-500
+                  group-hover/link:scale-110
+                "
+              />
+            </div>
+
+            <div className="min-w-0">
+
+              <span
+                className="
+                  block text-[9px]
+                  font-medium uppercase
+                  tracking-[0.17em]
+                  text-[#B99B73]/75
+                "
+              >
+                Production Footage
+              </span>
+
+              <h3
+                className="
+                  mt-2
+                  text-[clamp(0.95rem,1.5vw,1.15rem)]
+                  font-medium
+                  tracking-[-0.025em]
+                  text-white/75
+                  motion-safe:transition-colors
+                  motion-safe:duration-500
+                  group-hover/link:text-white
+                "
+              >
+                Live productions, soundchecks &amp; operations
+              </h3>
+
+              <p
+                className="
+                  mt-2 max-w-[55ch]
+                  text-[11.5px]
+                  leading-[1.75]
+                  text-white/35
+                  motion-safe:transition-colors
+                  motion-safe:duration-500
+                  group-hover/link:text-white/55
+                "
+              >
+                A collection of video documentation from live
+                sound operations, stage environments and
+                production setups.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* RIGHT ACTION */}
+
+          <div
+            className="
+              flex items-center gap-2
+              pl-14 sm:pl-0
+              text-[9px] font-medium
+              uppercase tracking-[0.15em]
+              text-white/40
+              motion-safe:transition-all
+              motion-safe:duration-500
+              group-hover/link:translate-x-[3px]
+              group-hover/link:text-white
+            "
+          >
+            Open Archive
+
+            <ExternalLink
+              size={12}
+              strokeWidth={1.6}
+              className="
+                motion-safe:transition-transform
+                motion-safe:duration-500
+                group-hover/link:translate-x-[2px]
+                group-hover/link:-translate-y-[2px]
               "
             />
 
           </div>
 
-        </section>
+        </div>
 
+        {/* BOTTOM SIGNAL */}
+
+        <span
+          aria-hidden="true"
+          className="
+            absolute bottom-0 left-0
+            h-px w-0 bg-[#B99B73]
+            motion-safe:transition-all
+            motion-safe:duration-700
+            group-hover/link:w-20
+          "
+        />
+
+      </a>
+
+    </section>
+  );
+}
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+export default function Page07VisualArchive() {
+  return (
+    <PortfolioPage
+      pageId="page-archive"
+      pageNumber=""
+      sectionLabel="07 / Visual Archive"
+    >
+      <div className="group/page relative isolate">
+
+        {/* BACKGROUND ACCENT */}
+
+        <div
+          aria-hidden="true"
+          className="
+            pointer-events-none
+            absolute -right-32 top-0 -z-10
+            h-[420px] w-[420px]
+            rounded-full
+            bg-[#B99B73]/[0.025]
+            blur-[120px]
+          "
+        />
 
         {/* =====================================================
-            VISUAL ARCHIVE
+            01. INTRO
         ===================================================== */}
 
-        <section>
+        <section
+          className="
+            group/intro reveal-up
+            pb-[clamp(3rem,6vw,4.5rem)]
+          "
+        >
 
-          <div className="flex items-center gap-3">
+          {/* LABEL */}
 
-            <span className="label-meta-bright">
-              FIELD RECORD
-            </span>
-
-            <span className="h-px flex-1 bg-[#1F1F1F]" />
+          <div className="mb-7 flex items-center gap-4">
 
             <span
               className="
-                hidden
-                text-[9px]
-                uppercase
-                tracking-[0.15em]
-                text-[#414141]
-                sm:block
+                h-px w-8 bg-[#B99B73]
+                motion-safe:transition-all
+                motion-safe:duration-500
+                group-hover/intro:w-14
               "
-            >
-              SELECTED WORK
+            />
+
+            <span className="label-meta text-[#B99B73]">
+              Production Archive
             </span>
 
           </div>
 
+          {/* HEADING + DESCRIPTION */}
 
           <div
             className="
-              mt-5
-              grid
-              grid-cols-1
-              gap-x-7
-              gap-y-11
+              grid grid-cols-1 gap-6
+              lg:grid-cols-[1.5fr_0.5fr]
+              lg:items-end
+            "
+          >
+
+            <h1
+              className="
+                m-0
+                text-[clamp(2.8rem,6.5vw,5.6rem)]
+                font-light uppercase
+                leading-[0.88]
+                tracking-[-0.07em]
+                text-white
+              "
+            >
+              PRODUCTION
+              <br />
+
+              <span
+                className="
+                  text-white/30
+                  motion-safe:transition-colors
+                  motion-safe:duration-700
+                  group-hover/intro:text-white/55
+                "
+              >
+                IN FOCUS.
+              </span>
+            </h1>
+
+            <div className="max-w-[350px] lg:pb-1">
+
+              <span
+                className="
+                  mb-4 block
+                  text-[9px] font-medium
+                  uppercase tracking-[0.19em]
+                  text-white/25
+                "
+              >
+                Behind the production
+              </span>
+
+              <p
+                className="
+                  border-l border-[#B99B73]/60
+                  pl-5
+                  text-[clamp(0.82rem,1vw,0.9rem)]
+                  leading-[1.85]
+                  text-white/45
+                  motion-safe:transition-colors
+                  motion-safe:duration-500
+                  group-hover/intro:text-white/65
+                "
+              >
+                A visual record of the people, systems and
+                environments behind live sound production.
+              </p>
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* =====================================================
+            02. VISUAL ARCHIVE
+        ===================================================== */}
+
+        <section
+          className="
+            border-t border-white/10
+            pt-5 reveal-up
+          "
+        >
+
+          {/* SECTION HEADER */}
+
+          <div className="flex items-center gap-3">
+
+            <span className="label-meta text-white/40">
+              Field Record
+            </span>
+
+            <span className="h-px flex-1 bg-white/10" />
+
+            <span
+              className="
+                text-[9px] uppercase
+                tracking-[0.15em]
+                text-white/25
+              "
+            >
+              SELECTED DOCUMENTATION
+            </span>
+
+          </div>
+
+          {/* GALLERY */}
+
+          <div
+            className="
+              mt-6 grid grid-cols-1
+              gap-x-7 gap-y-10
               sm:grid-cols-2
               sm:gap-y-14
             "
           >
 
-            {archive.map((img, idx) => (
-              <figure
-                key={img.src}
-                data-cursor="OPEN"
-                className={`
-                  group
-                  relative
-                  cursor-default
-                  ${idx === 1
-                    ? 'sm:mt-10'
-                    : ''
-                  }
-                  ${idx === 3
-                    ? 'sm:mt-[-2rem]'
-                    : ''
-                  }
-                `}
-              >
-
-                {/* =================================================
-                    IMAGE
-                ================================================= */}
-
-                <div
-                  className="
-                    relative
-                    overflow-hidden
-                    bg-[#0D0D0D]
-                  "
-                >
-
-                  <ImageFrame
-                    src={img.src}
-                    alt={img.alt}
-                    className="
-                      w-full
-                      transition-transform
-                      duration-[1100ms]
-                      ease-[cubic-bezier(0.22,1,0.36,1)]
-                      group-hover:scale-[1.025]
-                      group-hover:-translate-y-[2px]
-                    "
-                    style={{
-                      aspectRatio:
-                        idx === 0 || idx === 3
-                          ? '3/2'
-                          : '4/3',
-                    }}
-                  />
-
-                  {/* Subtle tonal shift */}
-
-                  <div
-                    className="
-                      pointer-events-none
-                      absolute
-                      inset-0
-                      bg-white/[0.02]
-                      opacity-0
-                      transition-opacity
-                      duration-700
-                      group-hover:opacity-100
-                    "
-                  />
-
-                  {/* Top signal */}
-
-                  <span
-                    className="
-                      pointer-events-none
-                      absolute
-                      left-0
-                      top-0
-                      h-px
-                      w-0
-                      bg-[#888]
-                      transition-all
-                      duration-700
-                      ease-[cubic-bezier(0.22,1,0.36,1)]
-                      group-hover:w-20
-                    "
-                  />
-
-                  {/* Bottom signal */}
-
-                  <span
-                    className="
-                      pointer-events-none
-                      absolute
-                      bottom-0
-                      right-0
-                      h-px
-                      w-0
-                      bg-[#888]
-                      transition-all
-                      duration-700
-                      ease-[cubic-bezier(0.22,1,0.36,1)]
-                      group-hover:w-20
-                    "
-                  />
-
-                </div>
-
-
-                {/* =================================================
-                    CAPTION
-                ================================================= */}
-
-                <figcaption
-                  className="
-                    relative
-                    mt-3
-                    overflow-hidden
-                  "
-                >
-
-                  <div
-                    className="
-                      flex
-                      items-center
-                      justify-between
-                      gap-4
-                    "
-                  >
-
-                    <div
-                      className="
-                        flex
-                        items-center
-                        gap-3
-                        transition-transform
-                        duration-700
-                        ease-[cubic-bezier(0.22,1,0.36,1)]
-                        group-hover:translate-x-[4px]
-                      "
-                    >
-
-                      <span
-                        className="
-                          text-[8px]
-                          font-medium
-                          tracking-[0.16em]
-                          text-[#444]
-                          transition-colors
-                          duration-500
-                          group-hover:text-[#777]
-                        "
-                      >
-                        {img.index}
-                      </span>
-
-                      <span
-                        className="
-                          h-px
-                          w-4
-                          bg-[#303030]
-                          transition-all
-                          duration-700
-                          ease-[cubic-bezier(0.22,1,0.36,1)]
-                          group-hover:w-7
-                          group-hover:bg-[#666]
-                        "
-                      />
-
-                      <span
-                        className="
-                          text-[11.5px]
-                          font-medium
-                          tracking-[-0.01em]
-                          text-[#999]
-                          transition-colors
-                          duration-500
-                          group-hover:text-white
-                        "
-                      >
-                        {img.caption}
-                      </span>
-
-                    </div>
-
-
-                    <span
-                      className="
-                        hidden
-                        text-[8px]
-                        uppercase
-                        tracking-[0.15em]
-                        text-[#3F3F3F]
-                        transition-colors
-                        duration-500
-                        sm:block
-                        group-hover:text-[#6A6A6A]
-                      "
-                    >
-                      {img.type}
-                    </span>
-
-                  </div>
-
-
-                  {/* Caption signal */}
-
-                  <span
-                    className="
-                      mt-2.5
-                      block
-                      h-px
-                      w-0
-                      bg-[#666]
-                      transition-all
-                      duration-700
-                      ease-[cubic-bezier(0.22,1,0.36,1)]
-                      group-hover:w-12
-                    "
-                  />
-
-                </figcaption>
-
-              </figure>
+            {archive.map((item) => (
+              <ArchiveImage
+                key={item.src}
+                item={item}
+              />
             ))}
 
           </div>
 
         </section>
 
+        {/* =====================================================
+            03. VIDEO ARCHIVE
+        ===================================================== */}
+
+        <VideoArchive />
 
         {/* =====================================================
-            VIDEO ARCHIVE
+            04. CLOSING
         ===================================================== */}
 
         <section
           className="
-            mt-[clamp(3.5rem,6vw,5rem)]
+            group/closing
+            mt-[clamp(4rem,7vw,6rem)]
+            border-t border-white/10
+            pt-8 md:pt-10
+            reveal-up
           "
         >
 
-          <div className="flex items-center gap-3">
+          <div className="mb-7 flex items-center gap-4">
 
-            <span className="label-meta-bright">
-              VIDEO ARCHIVE
+            <span
+              className="
+                h-px w-8 bg-[#B99B73]
+                motion-safe:transition-all
+                motion-safe:duration-500
+                group-hover/closing:w-14
+              "
+            />
+
+            <span className="label-meta text-[#B99B73]">
+              Beyond the Console
             </span>
-
-            <span className="h-px flex-1 bg-[#1F1F1F]" />
 
           </div>
 
-
-          <a
-            href={DRIVE_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Open production video archive on Google Drive"
-            data-cursor="DRIVE"
+          <div
             className="
-              group
-              relative
-              mt-4
-              block
-              border-t
-              border-b
-              border-[#1F1F1F]
-              py-5
-              transition-colors
-              duration-500
-              hover:bg-[#0D0D0D]
+              grid grid-cols-1 gap-5
+              md:grid-cols-[1fr_auto]
+              md:items-end
             "
           >
 
-            {/* Active vertical signal */}
-
-            <span
+            <h2
               className="
-                absolute
-                bottom-0
-                left-0
-                top-0
-                w-px
-                bg-[#666]
-                opacity-0
-                transition-opacity
-                duration-500
-                group-hover:opacity-100
-              "
-            />
-
-
-            <div
-              className="
-                flex
-                flex-col
-                gap-5
-                sm:flex-row
-                sm:items-center
-                sm:justify-between
+                m-0 max-w-[760px]
+                text-[clamp(1.2rem,2.3vw,1.8rem)]
+                font-light leading-[1.5]
+                tracking-[-0.025em]
+                text-white/75
               "
             >
+              Every production has a story.
 
-              <div className="flex items-start gap-4">
-
-                <div
-                  className="
-                    flex
-                    h-8
-                    w-8
-                    shrink-0
-                    items-center
-                    justify-center
-                    border
-                    border-[#292929]
-                    text-[#666]
-                    transition-all
-                    duration-500
-                    group-hover:border-[#555]
-                    group-hover:bg-[#151515]
-                    group-hover:text-white
-                  "
-                >
-
-                  <Play
-                    size={11}
-                    strokeWidth={1.7}
-                    className="
-                      translate-x-[1px]
-                      transition-transform
-                      duration-500
-                      group-hover:scale-110
-                    "
-                  />
-
-                </div>
-
-
-                <div>
-
-                  <span
-                    className="
-                      block
-                      text-[9px]
-                      font-medium
-                      uppercase
-                      tracking-[0.16em]
-                      text-[#777]
-                      transition-colors
-                      duration-500
-                      group-hover:text-white
-                    "
-                  >
-                    Production Reel
-                  </span>
-
-                  <h3
-                    className="
-                      mt-1.5
-                      text-[14px]
-                      font-medium
-                      tracking-[-0.015em]
-                      text-[#AFAFAF]
-                      transition-colors
-                      duration-500
-                      group-hover:text-white
-                    "
-                  >
-                    Live production footage & multi-angle videos
-                  </h3>
-
-                  <p
-                    className="
-                      mt-1.5
-                      max-w-[55ch]
-                      text-[11.5px]
-                      leading-[1.6]
-                      text-[#626262]
-                      transition-colors
-                      duration-500
-                      group-hover:text-[#858585]
-                    "
-                  >
-                    Direct recordings from live FOH operations,
-                    stage mixes and soundchecks.
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              <div
+              <span
                 className="
-                  flex
-                  items-center
-                  gap-2
-                  pl-12
-                  text-[9px]
-                  font-medium
-                  uppercase
-                  tracking-[0.14em]
-                  text-[#666]
-                  transition-all
-                  duration-500
-                  group-hover:translate-x-[4px]
-                  group-hover:text-white
-                  sm:pl-0
+                  text-white/35
+                  motion-safe:transition-colors
+                  motion-safe:duration-500
+                  group-hover/closing:text-white/65
                 "
               >
-
-                Open Archive
-
-                <ExternalLink
-                  size={12}
-                  strokeWidth={1.6}
-                  className="
-                    transition-transform
-                    duration-500
-                    group-hover:translate-x-[2px]
-                    group-hover:-translate-y-[2px]
-                  "
-                />
-
-              </div>
-
-            </div>
-
-
-            {/* Bottom signal */}
+                {' '}These are a few moments behind the sound.
+              </span>
+            </h2>
 
             <span
               className="
-                absolute
-                bottom-0
-                left-0
-                h-px
-                w-0
-                bg-[#777]
-                transition-all
-                duration-700
-                ease-[cubic-bezier(0.22,1,0.36,1)]
-                group-hover:w-16
+                text-[10px] uppercase
+                tracking-[0.18em]
+                text-white/35
+                motion-safe:transition-colors
+                motion-safe:duration-300
+                group-hover/closing:text-[#B99B73]
+                md:pb-1
               "
-            />
+            >
+              Live Sound Engineer
+            </span>
 
-          </a>
+          </div>
 
         </section>
 
